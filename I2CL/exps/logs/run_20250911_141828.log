@@ -1,0 +1,210 @@
+{'exp_name': 'exps/i2cl', 'gpus': ['0', '1'], 'models': ['EleutherAI/gpt-j-6B'], 'datasets': ['agnews', 'sst2'], 'seed': 42, 'run_num': 5, 'run_baseline': True, 'metric': 'acc', 'bs': 2, 'load_in_8bit': True, 'use_cache': True, 'demo_sample_method': 'random', 'add_noise': True, 'noise_scale': 0.001, 'epochs': 100, 'optim': 'adamW', 'grad_bs': 2, 'lr': 0.01, 'wd': 0.001, 'cali_example_method': 'normal', 'layer': 'all', 'tok_pos': 'last', 'inject_method': 'linear', 'inject_pos': 'all', 'init_value': [0.1, 1.0], 'module': ['mlp', 'attn'], 'gen_cv_method': 'context', 'post_fuse_method': 'mean', 'split_demon': True, 'gen_example_method': 'normal', 'shot_per_class': 5, 'val_data_num': 32, 'test_data_num': 500, 'sample_method': 'uniform', 'use_instruction': False, 'add_extra_query': False, 'example_separator': '\n'}
+/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/site-packages/transformers/generation/configuration_utils.py:774: UserWarning: `return_dict_in_generate` is NOT set to `True`, but `output_hidden_states` is. When `return_dict_in_generate` is not `True`, `output_hidden_states` is ignored.
+  warnings.warn(
+Some weights of the model checkpoint at EleutherAI/gpt-j-6B were not used when initializing GPTJForCausalLM: ['transformer.h.0.attn.bias', 'transformer.h.0.attn.masked_bias', 'transformer.h.1.attn.bias', 'transformer.h.1.attn.masked_bias', 'transformer.h.10.attn.bias', 'transformer.h.10.attn.masked_bias', 'transformer.h.11.attn.bias', 'transformer.h.11.attn.masked_bias', 'transformer.h.12.attn.bias', 'transformer.h.12.attn.masked_bias', 'transformer.h.13.attn.bias', 'transformer.h.13.attn.masked_bias', 'transformer.h.14.attn.bias', 'transformer.h.14.attn.masked_bias', 'transformer.h.15.attn.bias', 'transformer.h.15.attn.masked_bias', 'transformer.h.16.attn.bias', 'transformer.h.16.attn.masked_bias', 'transformer.h.17.attn.bias', 'transformer.h.17.attn.masked_bias', 'transformer.h.18.attn.bias', 'transformer.h.18.attn.masked_bias', 'transformer.h.19.attn.bias', 'transformer.h.19.attn.masked_bias', 'transformer.h.2.attn.bias', 'transformer.h.2.attn.masked_bias', 'transformer.h.20.attn.bias', 'transformer.h.20.attn.masked_bias', 'transformer.h.21.attn.bias', 'transformer.h.21.attn.masked_bias', 'transformer.h.22.attn.bias', 'transformer.h.22.attn.masked_bias', 'transformer.h.23.attn.bias', 'transformer.h.23.attn.masked_bias', 'transformer.h.24.attn.bias', 'transformer.h.24.attn.masked_bias', 'transformer.h.25.attn.bias', 'transformer.h.25.attn.masked_bias', 'transformer.h.26.attn.bias', 'transformer.h.26.attn.masked_bias', 'transformer.h.27.attn.bias', 'transformer.h.27.attn.masked_bias', 'transformer.h.3.attn.bias', 'transformer.h.3.attn.masked_bias', 'transformer.h.4.attn.bias', 'transformer.h.4.attn.masked_bias', 'transformer.h.5.attn.bias', 'transformer.h.5.attn.masked_bias', 'transformer.h.6.attn.bias', 'transformer.h.6.attn.masked_bias', 'transformer.h.7.attn.bias', 'transformer.h.7.attn.masked_bias', 'transformer.h.8.attn.bias', 'transformer.h.8.attn.masked_bias', 'transformer.h.9.attn.bias', 'transformer.h.9.attn.masked_bias']
+- This IS expected if you are initializing GPTJForCausalLM from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing GPTJForCausalLM from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/site-packages/transformers/generation/configuration_utils.py:774: UserWarning: `return_dict_in_generate` is NOT set to `True`, but `output_hidden_states` is. When `return_dict_in_generate` is not `True`, `output_hidden_states` is ignored.
+  warnings.warn(
+Some weights of the model checkpoint at EleutherAI/gpt-j-6B were not used when initializing GPTJForCausalLM: ['transformer.h.0.attn.bias', 'transformer.h.0.attn.masked_bias', 'transformer.h.1.attn.bias', 'transformer.h.1.attn.masked_bias', 'transformer.h.10.attn.bias', 'transformer.h.10.attn.masked_bias', 'transformer.h.11.attn.bias', 'transformer.h.11.attn.masked_bias', 'transformer.h.12.attn.bias', 'transformer.h.12.attn.masked_bias', 'transformer.h.13.attn.bias', 'transformer.h.13.attn.masked_bias', 'transformer.h.14.attn.bias', 'transformer.h.14.attn.masked_bias', 'transformer.h.15.attn.bias', 'transformer.h.15.attn.masked_bias', 'transformer.h.16.attn.bias', 'transformer.h.16.attn.masked_bias', 'transformer.h.17.attn.bias', 'transformer.h.17.attn.masked_bias', 'transformer.h.18.attn.bias', 'transformer.h.18.attn.masked_bias', 'transformer.h.19.attn.bias', 'transformer.h.19.attn.masked_bias', 'transformer.h.2.attn.bias', 'transformer.h.2.attn.masked_bias', 'transformer.h.20.attn.bias', 'transformer.h.20.attn.masked_bias', 'transformer.h.21.attn.bias', 'transformer.h.21.attn.masked_bias', 'transformer.h.22.attn.bias', 'transformer.h.22.attn.masked_bias', 'transformer.h.23.attn.bias', 'transformer.h.23.attn.masked_bias', 'transformer.h.24.attn.bias', 'transformer.h.24.attn.masked_bias', 'transformer.h.25.attn.bias', 'transformer.h.25.attn.masked_bias', 'transformer.h.26.attn.bias', 'transformer.h.26.attn.masked_bias', 'transformer.h.27.attn.bias', 'transformer.h.27.attn.masked_bias', 'transformer.h.3.attn.bias', 'transformer.h.3.attn.masked_bias', 'transformer.h.4.attn.bias', 'transformer.h.4.attn.masked_bias', 'transformer.h.5.attn.bias', 'transformer.h.5.attn.masked_bias', 'transformer.h.6.attn.bias', 'transformer.h.6.attn.masked_bias', 'transformer.h.7.attn.bias', 'transformer.h.7.attn.masked_bias', 'transformer.h.8.attn.bias', 'transformer.h.8.attn.masked_bias', 'transformer.h.9.attn.bias', 'transformer.h.9.attn.masked_bias']
+- This IS expected if you are initializing GPTJForCausalLM from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing GPTJForCausalLM from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Running EleutherAI/gpt-j-6B on agnews with GPU 0
+The model has 28 layers:
+Loading train data from AGNews ...
+Dataset lengh is 120000
+Example data:
+{'text': "Wall St. Bears Claw Back Into the Black (Reuters) Reuters - Short-sellers, Wall Street's dwindling\\band of ultra-cynics, are seeing green again.", 'label': 2}
+Loading train data from AGNews ...
+Number of data in each class:
+0: 30000
+1: 30000
+2: 30000
+3: 30000
+Dataset lengh is 32
+Example data:
+{'text': 'Euro rises to new record high 1.2937 dollars (AFP) AFP - The euro rose to a new record high against the dollar, climbing to 1.2937 dollars in late European trades.', 'label': 0}
+Loading test data from AGNews ...
+Number of data in each class:
+0: 1900
+1: 1900
+2: 1900
+3: 1900
+Dataset lengh is 500
+Example data:
+{'text': 'Confident Bush Outlines Ambitious Plan for 2nd Term President Bush said he would begin work immediately on his proposal to overhaul Social Security.', 'label': 0}
+Run time run_0
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+CUDA memory cleared for GPU 0
+Process Process-1:
+Traceback (most recent call last):
+  File "/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "run_i2cl.py", line 244, in run_task
+    main(input_args)
+  File "run_i2cl.py", line 81, in main
+    test_zeroshot_result = test_evaluator.evaluate(model_wrapper, tokenizer, demonstration='',
+  File "/home/jiii111/iclTaskVector/I2CL/evaluator.py", line 18, in evaluate
+    return self._evaluate_text_classification_batch(model_wrapper, tokenizer,
+  File "/home/jiii111/iclTaskVector/I2CL/evaluator.py", line 90, in _evaluate_text_classification_batch
+    output = model(input_ids=input_ids, attention_mask=attn_mask)
+  File "/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/site-packages/transformers/models/gptj/modeling_gptj.py", line 1098, in forward
+    transformer_outputs = self.transformer(
+  File "/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/site-packages/transformers/models/gptj/modeling_gptj.py", line 838, in forward
+    outputs = block(
+  File "/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/site-packages/transformers/models/gptj/modeling_gptj.py", line 466, in forward
+    feed_forward_hidden_states = self.mlp(hidden_states)
+  File "/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/site-packages/transformers/models/gptj/modeling_gptj.py", line 426, in forward
+    hidden_states = self.act(hidden_states)
+  File "/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/site-packages/transformers/activations.py", line 56, in forward
+    return 0.5 * input * (1.0 + torch.tanh(math.sqrt(2.0 / math.pi) * (input + 0.044715 * torch.pow(input, 3.0))))
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 14.00 MiB. GPU 0 has a total capacity of 23.65 GiB of which 1.81 MiB is free. Including non-PyTorch memory, this process has 23.64 GiB memory in use. Of the allocated memory 23.10 GiB is allocated by PyTorch, and 95.76 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+We detected that you are passing `past_key_values` as a tuple of tuples. This is deprecated and will be removed in v4.47. Please convert your cache or use an appropriate `Cache` class (https://huggingface.co/docs/transformers/kv_cache#legacy-cache-format)
+Running EleutherAI/gpt-j-6B on sst2 with GPU 1
+The model has 28 layers:
+Loading train data from sst2 ...
+Dataset lengh is 67349
+Example data:
+{'sentence': 'hide new secretions from the parental units ', 'label': 0, 'idx': 0}
+Loading train data from sst2 ...
+Number of data in each class:
+0: 29780
+1: 37569
+Dataset lengh is 32
+Example data:
+{'sentence': 'been discovered , indulged in and rejected as boring before i see this piece of crap again ', 'label': 0, 'idx': 47448}
+Loading validation data from sst2 ...
+Number of data in each class:
+0: 428
+1: 444
+Dataset lengh is 500
+Example data:
+{'sentence': 'verbinski implements every hack-artist trick to give us the ooky-spookies . ', 'label': 0, 'idx': 670}
+Run time run_0
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Test zero-shot result: {'acc': 0.768, 'macro_f1': 0.7672701592193119}
+
+Generated 10-shot demonstration.
+Demonstration:
+Review: ca n't miss it . 
+Sentiment: positive
+Review: bolado credit for good intentions 
+Sentiment: positive
+Review: with serious ideas 
+Sentiment: positive
+Review: , stop eric schaeffer before he makes another film . 
+Sentiment: negative
+Review: a college keg party 
+Sentiment: negative
+Review: a paint-by-numbers picture 
+Sentiment: negative
+Review: even the filmmakers did n't know what kind of movie they were making 
+Sentiment: negative
+Review: easily accessible stories 
+Sentiment: positive
+Review: just about the surest bet 
+Sentiment: positive
+Review: uncompromising , difficult 
+Sentiment: negative
+
+
+Baseline demonstration:
+Review: ca n't miss it . 
+Sentiment: positive
+Review: bolado credit for good intentions 
+Sentiment: positive
+Review: with serious ideas 
+Sentiment: positive
+Review: , stop eric schaeffer before he makes another film . 
+Sentiment: negative
+Review: a college keg party 
+Sentiment: negative
+Review: a paint-by-numbers picture 
+Sentiment: negative
+Review: even the filmmakers did n't know what kind of movie they were making 
+Sentiment: negative
+Review: easily accessible stories 
+Sentiment: positive
+Review: just about the surest bet 
+Sentiment: positive
+Review: uncompromising , difficult 
+Sentiment: negative
+
+
+Query demonstration:
+None
+
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+CUDA memory cleared for GPU 1
+Process Process-2:
+Traceback (most recent call last):
+  File "/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "run_i2cl.py", line 244, in run_task
+    main(input_args)
+  File "run_i2cl.py", line 135, in main
+    test_fewshot_result = test_evaluator.evaluate(model_wrapper, tokenizer,
+  File "/home/jiii111/iclTaskVector/I2CL/evaluator.py", line 18, in evaluate
+    return self._evaluate_text_classification_batch(model_wrapper, tokenizer,
+  File "/home/jiii111/iclTaskVector/I2CL/evaluator.py", line 87, in _evaluate_text_classification_batch
+    output = model(input_ids=input_ids, attention_mask=attn_mask,
+  File "/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/site-packages/transformers/models/gptj/modeling_gptj.py", line 1098, in forward
+    transformer_outputs = self.transformer(
+  File "/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/site-packages/transformers/models/gptj/modeling_gptj.py", line 838, in forward
+    outputs = block(
+  File "/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/site-packages/transformers/models/gptj/modeling_gptj.py", line 453, in forward
+    attn_outputs = self.attn(
+  File "/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/site-packages/transformers/models/gptj/modeling_gptj.py", line 246, in forward
+    key, value = layer_past.update(key, value, self.layer_idx, cache_kwargs)
+  File "/home/jiii111/miniconda3/envs/i2cl_env/lib/python3.8/site-packages/transformers/cache_utils.py", line 448, in update
+    self.value_cache[layer_idx] = torch.cat([self.value_cache[layer_idx], value_states], dim=-2)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 20.00 MiB. GPU 1 has a total capacity of 23.65 GiB of which 19.81 MiB is free. Including non-PyTorch memory, this process has 23.62 GiB memory in use. Of the allocated memory 23.15 GiB is allocated by PyTorch, and 32.65 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+All tasks completed.

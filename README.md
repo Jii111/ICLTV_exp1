@@ -1,0 +1,6 @@
+- main baseline : I2CL
+- 수정사항
+  - #✅ 수정으로 표시
+  - I2CL/evaluator.py : return_logits 추가
+  - I2CL/utils.py : compute_kl_divergence, plot_kl_hist 함수 추가 정의
+  - I2CL/run_i2cl.py, I2CL/run_task_vector.py 수정

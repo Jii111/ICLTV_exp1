@@ -12,14 +12,13 @@ class Evaluator(nn.Module):
         super().__init__()
         self.dataset = dataset
         self.batch_size = batch_size
-
-    def evaluate(self, model_wrapper, tokenizer, demonstration='', use_cache=False):
+    def evaluate(self, model_wrapper, tokenizer, demonstration='', use_cache=False, return_logits=False): # ✅ 수정
         
         return self._evaluate_text_classification_batch(model_wrapper, tokenizer, 
-                                                        demonstration, use_cache=use_cache)
+                                                        demonstration, use_cache=use_cache, return_logits=return_logits) # ✅ 수졍
 
     def _evaluate_text_classification_batch(self, model_wrapper, tokenizer, 
-                                            demonstration, use_cache=False):
+                                            demonstration, use_cache=False, return_logits=False): # ✅ 수정
         
         model = model_wrapper.model
         # prepare label dict          
@@ -35,6 +34,7 @@ class Evaluator(nn.Module):
 
         # prepare all data
         all_pred_labels = []
+        all_pred_logits = [] if return_logits else None # ✅ 수정
         all_inputs, all_labels = [], []
         for data in self.dataset.all_data:
             ques_str, _, label = self.dataset.apply_template(data)
@@ -99,6 +99,8 @@ class Evaluator(nn.Module):
                 pred_labels = probs.argmax(dim=-1)
                 # save results
                 all_pred_labels.extend(pred_labels.cpu().numpy().tolist())
+                if return_logits: # ✅ 수정
+                    all_pred_logits.append(pred_logits.detach().cpu()) 
 
         assert len(all_pred_labels) == len(all_labels)
         # both all_results and all_labels are list containing label index, can you help me to calculate accuracy and macro f1?
@@ -128,4 +130,10 @@ class Evaluator(nn.Module):
             f1[i] = 2 * (precision[i] * recall[i]) / (precision[i] + recall[i]) if (precision[i] + recall[i]) > 0 else 0
         macro_f1 = sum(f1) / num_classes
         acc = sum(acc) / len(acc)
-        return {'acc': acc, 'macro_f1': macro_f1}
+        metrics = {'acc': acc, 'macro_f1': macro_f1}
+        
+        if return_logits:  # ✅ 수정
+            all_pred_logits = torch.cat(all_pred_logits, dim=0)  # (N, num_classes)
+            return metrics, all_pred_logits, all_labels
+        else:
+            return metrics

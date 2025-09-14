@@ -49,13 +49,13 @@ def main(args):
                                             tokenizer, model_config, 
                                             args.device)
     # load datasets
-    train_dataset = md.get_dataset(args.dataset_name, split='train', max_data_num=None)
+    train_dataset = md.get_dataset(args.dataset_name, split='train', max_data_num=None, seed=args.config['seed']) # ✅ 수정
     val_dataset = md.get_dataset(args.dataset_name, split='validation', 
                                  max_data_num=args.config['val_data_num'],
-                                 sample_mode=args.config['sample_method'])
+                                 sample_mode=args.config['sample_method'], seed=args.config['seed'])
     test_dataset = md.get_dataset(args.dataset_name, split='test', 
                                   max_data_num=args.config['test_data_num'],
-                                  sample_mode=args.config['sample_method'])
+                                  sample_mode=args.config['sample_method'], seed=args.config['seed'])
 
     # get max demonstration token length for each dataset
     args.val_max_token = val_dataset.get_max_demonstration_token_length(tokenizer)
@@ -77,6 +77,7 @@ def main(args):
                    'val_result': {'zero_shot': [], 'few_shot': [], 'ours': []}, 
                    'time': {'calibrate': [], 'evaluate': []},
                    }
+    kl_dict = {} # ✅ 수정
     
     for run_id in range(args.config['run_num']):
         run_name = f'run_{run_id}'
@@ -89,8 +90,10 @@ def main(args):
         if run_id == 0 and args.config['run_baseline']:  
             val_zeroshot_result = val_evaluator.evaluate(model_wrapper, tokenizer, demonstration='',
                                                          use_cache=args.config['use_cache'])
-            test_zeroshot_result = test_evaluator.evaluate(model_wrapper, tokenizer, demonstration='',
-                                                           use_cache=args.config['use_cache'])
+            #test_zeroshot_result = test_evaluator.evaluate(model_wrapper, tokenizer, demonstration='',
+            #                                               use_cache=args.config['use_cache'])
+            test_zeroshot_result, test_zeroshot_logits, test_zeroshot_labels = test_evaluator.evaluate(model_wrapper, tokenizer, demonstration='',
+                                                           use_cache=args.config['use_cache'], return_logits=True) # ✅ 수정
             result_dict['val_result']['zero_shot'].append(val_zeroshot_result)
             result_dict['test_result']['zero_shot'].append(test_zeroshot_result)
             print(f'Validation zero-shot result: {val_zeroshot_result}\n')
@@ -103,7 +106,7 @@ def main(args):
                                                                                args.test_max_token),
                                                  add_extra_query=args.config['add_extra_query'],
                                                  example_separator=args.config['example_separator'],
-                                                 return_data_index=True, seed=random.randint(0, 1e6)
+                                                 return_data_index=True, seed=args.config['demo_seed'] + run_id
                                                  )
 
         if args.config['add_extra_query']:
@@ -124,9 +127,12 @@ def main(args):
             val_fewshot_result = val_evaluator.evaluate(model_wrapper, tokenizer, 
                                                         demonstration=baseline_demon, 
                                                         use_cache=args.config['use_cache'])
-            test_fewshot_result = test_evaluator.evaluate(model_wrapper, tokenizer,
-                                                         demonstration=baseline_demon,
-                                                         use_cache=args.config['use_cache'])
+            #test_fewshot_result = test_evaluator.evaluate(model_wrapper, tokenizer,
+            #                                             demonstration=baseline_demon,
+            #                                             use_cache=args.config['use_cache'])
+            test_fewshot_result, test_fewshot_logits, test_fewshot_labels = test_evaluator.evaluate(model_wrapper, tokenizer, 
+                                                          demonstration=baseline_demon, 
+                                                          use_cache=args.config['use_cache'], return_logits=True) # ✅ 수정
             result_dict['val_result']['few_shot'].append(val_fewshot_result)
             result_dict['test_result']['few_shot'].append(test_fewshot_result)
             print(f'Validation few-shot result: {val_fewshot_result}\n')
@@ -157,8 +163,10 @@ def main(args):
             print(f'Validation task_vector result: {val_ours_result}\n')
             result_dict['val_result']['ours'].append(val_ours_result)
 
-            test_ours_result = test_evaluator.evaluate(model_wrapper, tokenizer, demonstration='', 
-                                                       use_cache=args.config['use_cache'])
+            #test_ours_result = test_evaluator.evaluate(model_wrapper, tokenizer, demonstration='', 
+            #                                           use_cache=args.config['use_cache'])
+            test_ours_result, test_ours_logits, test_ours_labels = test_evaluator.evaluate(model_wrapper, tokenizer, demonstration='', 
+                                                           use_cache=args.config['use_cache'], return_logits=True) # ✅ 수정
             print(f'Test task_vector result: {test_ours_result}\n')
             result_dict['test_result']['ours'].append(test_ours_result)
         e_t = time.time()
@@ -169,6 +177,19 @@ def main(args):
         # save result_dict after each run
         with open(args.save_dir + '/result_dict.json', 'w') as f:
             json.dump(result_dict, f, indent=4)
+            
+        # ✅ 수정
+        mean_kl, kl_values = utils.compute_kl_divergence(test_fewshot_logits, test_ours_logits) # kl values : per query KL 값, len(test_dataset) 개
+        print(f"Mean KL divergence (ICL vs I2CL): {mean_kl:.4f}")
+        print(f"(Test query count: {len(test_fewshot_labels)})")
+        assert test_fewshot_labels == test_ours_labels, "Label mismatch between few-shot and I2CL results!"
+        kl_dict[run_name] = {"mean_kl": mean_kl,"kl_values": kl_values.tolist(),"labels": list(map(int, test_fewshot_labels))}
+        
+        with open(args.save_dir + '/kl_divergence.json', 'w') as f:
+            json.dump(kl_dict, f, indent=4)
+        
+        utils.plot_kl_hist(kl_values, mean_kl, args.save_dir + f"/{run_name}_kl_hist.png")
+        
     
     # delete all variables
     del model_wrapper, model, tokenizer, train_dataset, val_dataset, test_dataset

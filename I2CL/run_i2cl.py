@@ -58,7 +58,7 @@ def main(args):
     args.shot_num = utils.get_shot_num(train_dataset, args.config['shot_per_class'])
 
     # build evaluators
-    test_evaluator = ev.Evaluator(test_dataset, batch_size=args.config['bs'])
+    test_evaluator = ev.Evaluator(test_dataset, batch_size=args.config['bs']) 
     holdout_evaluator = ev.Evaluator(holdout_dataset, batch_size=args.config['bs'])
     # init result_dict
     result_dict = {'demon': {},
@@ -68,6 +68,7 @@ def main(args):
                    'time': {'calibrate': [], 'evaluate': []},
                    }
     cv_save_dict = {}
+    kl_dict = {} # ✅ 수정
     
     for run_id in range(args.config['run_num']):
         run_name = f'run_{run_id}'
@@ -78,8 +79,10 @@ def main(args):
     
         # zero-shot baseline
         if run_id == 0 and args.config['run_baseline']:
-            test_zeroshot_result = test_evaluator.evaluate(model_wrapper, tokenizer, demonstration='',
-                                                           use_cache=args.config['use_cache'])
+            #test_zeroshot_result = test_evaluator.evaluate(model_wrapper, tokenizer, demonstration='',
+            #                                               use_cache=args.config['use_cache'])
+            test_zeroshot_result, test_zeroshot_logits, test_zeroshot_labels = test_evaluator.evaluate(model_wrapper, tokenizer, demonstration='',
+                                                           use_cache=args.config['use_cache'], return_logits=True) # ✅ 수정
             result_dict['test_result']['zero_shot'].append(test_zeroshot_result)
             print(f'Test zero-shot result: {test_zeroshot_result}\n')
 
@@ -93,7 +96,7 @@ def main(args):
                                                      add_extra_query=args.config['add_extra_query'],
                                                      example_separator=args.config['example_separator'],
                                                      gen_example_method = args.config['gen_example_method'],
-                                                     return_data_index=True, seed=random.randint(0, 1e6))
+                                                     return_data_index=True, seed=args.config['demo_seed'] + run_id)
             temp_demon_list.append((demon, split_demon, demon_data_index))
 
             if args.config['demo_sample_method'] == 'random':
@@ -132,9 +135,12 @@ def main(args):
         
         # few-shot baseline
         if args.config['run_baseline']:
-            test_fewshot_result = test_evaluator.evaluate(model_wrapper, tokenizer, 
+            #test_fewshot_result = test_evaluator.evaluate(model_wrapper, tokenizer, 
+            #                                              demonstration=baseline_demon, 
+            #                                              use_cache=args.config['use_cache'])
+            test_fewshot_result, test_fewshot_logits, test_fewshot_labels = test_evaluator.evaluate(model_wrapper, tokenizer, 
                                                           demonstration=baseline_demon, 
-                                                          use_cache=args.config['use_cache'])
+                                                          use_cache=args.config['use_cache'], return_logits=True) # ✅ 수정
             result_dict['test_result']['few_shot'].append(test_fewshot_result)
             print(f'Test few-shot result: {test_fewshot_result}\n')
 
@@ -184,8 +190,11 @@ def main(args):
         with torch.no_grad():
             with model_wrapper.inject_latent(context_vector_dict, args.config,
                                              model_wrapper.linear_coef):
-                test_ours_result = test_evaluator.evaluate(model_wrapper, tokenizer, demonstration='', 
-                                                           use_cache=args.config['use_cache'])
+                #test_ours_result = test_evaluator.evaluate(model_wrapper, tokenizer, demonstration='', 
+                #                                           use_cache=args.config['use_cache'])
+                test_ours_result, test_ours_logits, test_ours_labels = test_evaluator.evaluate(model_wrapper, tokenizer, demonstration='', 
+                                                           use_cache=args.config['use_cache'], return_logits=True) # ✅ 수정
+                
                 print(f'Test I2CL result: {test_ours_result}\n')
                 result_dict['test_result']['ours'].append(test_ours_result)
         e_t = time.time()
@@ -204,6 +213,19 @@ def main(args):
 
         with open(args.save_dir + '/cv_save_dict.json', 'w') as f:
             json.dump(cv_save_dict, f, indent=4)
+            
+        # ✅ 수정
+        mean_kl, kl_values = utils.compute_kl_divergence(test_fewshot_logits, test_ours_logits) # kl values : per query KL 값, len(test_dataset) 개
+        print(f"Mean KL divergence (ICL vs I2CL): {mean_kl:.4f}")
+        print(f"(Test query count: {len(test_fewshot_labels)})")
+        assert test_fewshot_labels == test_ours_labels, "Label mismatch between few-shot and I2CL results!"
+        kl_dict[run_name] = {"mean_kl": mean_kl,"kl_values": kl_values.tolist(),"labels": list(map(int, test_fewshot_labels))}
+        
+        with open(args.save_dir + '/kl_divergence.json', 'w') as f:
+            json.dump(kl_dict, f, indent=4)
+        
+        utils.plot_kl_hist(kl_values, mean_kl, args.save_dir + f"/{run_name}_kl_hist.png")
+        
 
     # delete all variables
     del model_wrapper, model, tokenizer, train_dataset, cali_dataset, test_dataset, holdout_dataset

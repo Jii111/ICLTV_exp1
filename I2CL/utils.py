@@ -7,6 +7,7 @@ import warnings
 import numpy as np
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 from typing import Union, List, Optional
 from transformers import AutoTokenizer, AutoModelForCausalLM, AutoConfig
 import matplotlib.pyplot as plt
@@ -321,3 +322,21 @@ class TensorStrFinder:
             s_tensor in list_s_tensor]
         mask_tensor = functools.reduce(torch.logical_or, mask_tensor_list)
         return mask_tensor
+    
+def compute_kl_divergence(logits_p, logits_q):
+    probs_p = F.softmax(logits_p, dim=-1)
+    probs_q = F.softmax(logits_q, dim=-1)
+    kl = (probs_p * (probs_p.log() - probs_q.log())).sum(dim=-1)  # per-sample
+    return kl.mean().item(), kl.cpu().numpy()
+
+def plot_kl_hist(kl_values, mean_kl, save_path):
+    """KL divergence histogram plot"""
+    plt.figure(figsize=(8,5))
+    plt.hist(kl_values, bins=30, color='steelblue', alpha=0.7)
+    plt.axvline(mean_kl, color='red', linestyle='--', label=f"Mean KL = {mean_kl:.4f}")
+    plt.title("KL Divergence Distribution (ICL vs I2CL)")
+    plt.xlabel("KL divergence per sample")
+    plt.ylabel("Frequency")
+    plt.legend()
+    plt.savefig(save_path)
+    plt.close()

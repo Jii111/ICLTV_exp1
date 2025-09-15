@@ -1,0 +1,3056 @@
+{'exp_name': 'exps/task_vector', 'gpus': ['3'], 'models': ['EleutherAI/gpt-j-6B'], 'datasets': ['agnews', 'sst2'], 'seed': 42, 'demo_seed': 12, 'run_num': 5, 'run_baseline': True, 'metric': 'acc', 'bs': 2, 'load_in_8bit': True, 'use_cache': True, 'layer': 'all', 'tok_pos': 'last', 'module': ['hidden'], 'gen_cv_method': 'context', 'post_fuse_method': 'mean', 'split_demon': False, 'shot_per_class': 5, 'val_data_num': 32, 'test_data_num': 500, 'sample_method': 'uniform', 'use_instruction': False, 'add_extra_query': True, 'example_separator': '\n'}
+Running EleutherAI/gpt-j-6B on agnews with GPU 3
+The model has 28 layers:
+Loading train data from AGNews ...
+Dataset lengh is 120000
+Example data:
+{'text': "Wall St. Bears Claw Back Into the Black (Reuters) Reuters - Short-sellers, Wall Street's dwindling\\band of ultra-cynics, are seeing green again.", 'label': 2}
+Loading train data from AGNews ...
+Number of data in each class:
+0: 30000
+1: 30000
+2: 30000
+3: 30000
+Dataset lengh is 32
+Example data:
+{'text': 'Euro rises to new record high 1.2937 dollars (AFP) AFP - The euro rose to a new record high against the dollar, climbing to 1.2937 dollars in late European trades.', 'label': 0}
+Loading test data from AGNews ...
+Number of data in each class:
+0: 1900
+1: 1900
+2: 1900
+3: 1900
+Dataset lengh is 500
+Example data:
+{'text': 'Confident Bush Outlines Ambitious Plan for 2nd Term President Bush said he would begin work immediately on his proposal to overhaul Social Security.', 'label': 0}
+Max demonstration token length is : 2048 - 119 = 1929
+Max demonstration token length is : 2048 - 182 = 1866
+Run time run_0
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Validation zero-shot result: {'acc': 0.6875, 'macro_f1': 0.6461906514538093}
+
+Test zero-shot result: {'acc': 0.706, 'macro_f1': 0.6917917413942242}
+
+Generated 20-shot demonstration.
+Demonstration:
+News: Sprint: No comment on reported Nextel merger talks Sprint declined to comment on rumored merger talks with Nextel Communications, first reported yesterday.
+Type: Technology
+News: Kazakhstan mining blast kills 18 At least 18 miners have died and three are missing in a methane gas blast in Kazakhstan, officials say.
+Type: World
+News: Foot fault Unranked and 18-point underdogs, Oregon State came into Death Valley and nearly shocked the nation Saturday night. After a 47-minute weather delay, the Beavers outplayed fourth-ranked 
+Type: Sports
+News: JP Morgan cancels \$5B outsourcing deal with IBM NEW YORK - IBM Corp. lost one of its highest-profile outsourced-IT clients on Wednesday, as JPMorgan Chase   Co. said it is canceling the remaining portion of a contract that was intended as a seven-year, \$5 billion deal.
+Type: Technology
+News: Lucent Reaches Tentative Deal with Unions  NEW YORK (Reuters) -  Lucent Technologies Inc. said on  Tuesday it has reached a tentative agreement with the unions  representing 10 percent of the telecommunications equipment  maker's work force.
+Type: Business
+News: Insurance Probe Widens as Investors Flee  NEW YORK (Reuters) - The probe into insurance bid-rigging  by New York's attorney general widened to health insurers on  Tuesday, unnerving investors worried that more revelations of  wrongdoing and lower profits lie ahead.
+Type: Business
+News: Williams Asks NFL to Clarify His Status Ricky Williams has asked the NFL for a hearing to clarify his playing status, a possible first step if the running back tries to return to the league.
+Type: Sports
+News: Internet Turns 35 Today shadowspar writes  quot;The CBC is reporting that the Internet turned 35 today. The story talks about the less-than-prophetic beginnings of the net:  #39;In order to log in to the two-computer network, which was then 
+Type: Technology
+News: Faulds folds as Al Maktoum triumphs The family name alone, Al Maktoum, offered more than a scintilla of suspicion that we could expect something special. Never mind that victory normally materialises in the form of blue-blooded bloodstock rather from the barrel of ...
+Type: Sports
+News: Indonesians Vote to Oust Megawati Indonesian voters ousted incumbent Megawati Sukarnoputri in a run-off election for president Monday, awarding her former chief security minister a landslide victory, according to a projection by a local research institute.
+Type: World
+News: Australia #39;s Macquarie Commun Infrastructure Trading Halt SYDNEY (Dow Jones)--Australia #39;s Macquarie Communications Infrastructure Group (MCG.AU), which is bidding in a consortium for NTL Inc.
+Type: Business
+News: Cardinals #39; Smith, 35, leads oldies but goodies hit parade By Paul Connors, AP. The NFL #39;s elders made their mark Sunday, and in at least one case it resembled tire tracks. Emmitt Smith, 35, in his 15th season, became the oldest running back 
+Type: Sports
+News: Microsoft Regains AOL #39;s Support for Anti-Spam Technology America Online Inc. said yesterday it is once again supporting a Microsoft Corp. plan to combat unwanted bulk e-mail by verifying senders of messages, a move that could rekindle industry adoption of a new system for attacking spam.
+Type: Technology
+News: Britain Agrees to U.S. Troops Request (AP) AP - Britain agreed Thursday to meet a U.S. request for British troops to be moved into volatile central Iraq, a proposal that has met strong opposition within the governing Labour Party.
+Type: World
+News: This week in game news "Halo 2" proves heaven-sent as Microsoft racks up big-time sales and game fans burn the midnight oil.
+Type: Technology
+News: Series to begin in Atlanta on Tuesday or Wednesday The Atlanta Braves now know that they #39;ll be hosting the first two games of their National League Division Series next week. But they #39;ll have to wait until later this weekend to find out who their opponent will be.
+Type: Sports
+News: In August Fed planted seed for more rate hikes WASHINGTON -- Federal Reserve policy makers suggested ''significant quot; increases in short-term interest rates probably would be needed to keep inflation from becoming a problem, according to minutes of their August meeting that were released yesterday.
+Type: Business
+News: Google Desktop Search 1.0 Beta If there is one IT company that has changed the way we surf the Internet, especially while searching for data online, then it has to be Google.
+Type: Business
+News: Correct description of missing man's shoes would have helped search: police (Canadian Press) Canadian Press - TORONTO (CP) - A man with the mind of a toddler who died after wandering off two weeks ago likely wouldn't have survived even if investigators had realized sooner that they'd already found a key clue to his whereabouts, police said Tuesday.
+Type: World
+News: Putin Sets Veto Outcry at Rest NEW DELHI, 5 December 2004 - Russian President Vladimir Putin clarified his stand yesterday on Moscow favoring Indias membership of the UN Security Council.
+Type: World
+News: U.S. Second-Quarter GDP Downgraded  WASHINGTON (Reuters) - The U.S. economy grew more slowly in  the second quarter than first thought amid shrinking corporate  profits and higher imports, the government said on Friday in a  report that confirmed momentum faltered in the spring.
+Type:
+
+Baseline demonstration:
+News: Sprint: No comment on reported Nextel merger talks Sprint declined to comment on rumored merger talks with Nextel Communications, first reported yesterday.
+Type: Technology
+News: Kazakhstan mining blast kills 18 At least 18 miners have died and three are missing in a methane gas blast in Kazakhstan, officials say.
+Type: World
+News: Foot fault Unranked and 18-point underdogs, Oregon State came into Death Valley and nearly shocked the nation Saturday night. After a 47-minute weather delay, the Beavers outplayed fourth-ranked 
+Type: Sports
+News: JP Morgan cancels \$5B outsourcing deal with IBM NEW YORK - IBM Corp. lost one of its highest-profile outsourced-IT clients on Wednesday, as JPMorgan Chase   Co. said it is canceling the remaining portion of a contract that was intended as a seven-year, \$5 billion deal.
+Type: Technology
+News: Lucent Reaches Tentative Deal with Unions  NEW YORK (Reuters) -  Lucent Technologies Inc. said on  Tuesday it has reached a tentative agreement with the unions  representing 10 percent of the telecommunications equipment  maker's work force.
+Type: Business
+News: Insurance Probe Widens as Investors Flee  NEW YORK (Reuters) - The probe into insurance bid-rigging  by New York's attorney general widened to health insurers on  Tuesday, unnerving investors worried that more revelations of  wrongdoing and lower profits lie ahead.
+Type: Business
+News: Williams Asks NFL to Clarify His Status Ricky Williams has asked the NFL for a hearing to clarify his playing status, a possible first step if the running back tries to return to the league.
+Type: Sports
+News: Internet Turns 35 Today shadowspar writes  quot;The CBC is reporting that the Internet turned 35 today. The story talks about the less-than-prophetic beginnings of the net:  #39;In order to log in to the two-computer network, which was then 
+Type: Technology
+News: Faulds folds as Al Maktoum triumphs The family name alone, Al Maktoum, offered more than a scintilla of suspicion that we could expect something special. Never mind that victory normally materialises in the form of blue-blooded bloodstock rather from the barrel of ...
+Type: Sports
+News: Indonesians Vote to Oust Megawati Indonesian voters ousted incumbent Megawati Sukarnoputri in a run-off election for president Monday, awarding her former chief security minister a landslide victory, according to a projection by a local research institute.
+Type: World
+News: Australia #39;s Macquarie Commun Infrastructure Trading Halt SYDNEY (Dow Jones)--Australia #39;s Macquarie Communications Infrastructure Group (MCG.AU), which is bidding in a consortium for NTL Inc.
+Type: Business
+News: Cardinals #39; Smith, 35, leads oldies but goodies hit parade By Paul Connors, AP. The NFL #39;s elders made their mark Sunday, and in at least one case it resembled tire tracks. Emmitt Smith, 35, in his 15th season, became the oldest running back 
+Type: Sports
+News: Microsoft Regains AOL #39;s Support for Anti-Spam Technology America Online Inc. said yesterday it is once again supporting a Microsoft Corp. plan to combat unwanted bulk e-mail by verifying senders of messages, a move that could rekindle industry adoption of a new system for attacking spam.
+Type: Technology
+News: Britain Agrees to U.S. Troops Request (AP) AP - Britain agreed Thursday to meet a U.S. request for British troops to be moved into volatile central Iraq, a proposal that has met strong opposition within the governing Labour Party.
+Type: World
+News: This week in game news "Halo 2" proves heaven-sent as Microsoft racks up big-time sales and game fans burn the midnight oil.
+Type: Technology
+News: Series to begin in Atlanta on Tuesday or Wednesday The Atlanta Braves now know that they #39;ll be hosting the first two games of their National League Division Series next week. But they #39;ll have to wait until later this weekend to find out who their opponent will be.
+Type: Sports
+News: In August Fed planted seed for more rate hikes WASHINGTON -- Federal Reserve policy makers suggested ''significant quot; increases in short-term interest rates probably would be needed to keep inflation from becoming a problem, according to minutes of their August meeting that were released yesterday.
+Type: Business
+News: Google Desktop Search 1.0 Beta If there is one IT company that has changed the way we surf the Internet, especially while searching for data online, then it has to be Google.
+Type: Business
+News: Correct description of missing man's shoes would have helped search: police (Canadian Press) Canadian Press - TORONTO (CP) - A man with the mind of a toddler who died after wandering off two weeks ago likely wouldn't have survived even if investigators had realized sooner that they'd already found a key clue to his whereabouts, police said Tuesday.
+Type: World
+News: Putin Sets Veto Outcry at Rest NEW DELHI, 5 December 2004 - Russian President Vladimir Putin clarified his stand yesterday on Moscow favoring Indias membership of the UN Security Council.
+Type: World
+
+
+Query demonstration:
+News: U.S. Second-Quarter GDP Downgraded  WASHINGTON (Reuters) - The U.S. economy grew more slowly in  the second quarter than first thought amid shrinking corporate  profits and higher imports, the government said on Friday in a  report that confirmed momentum faltered in the spring.
+Type:
+
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Validation few-shot result: {'acc': 0.6875, 'macro_f1': 0.6339869281045751}
+
+Test few-shot result: {'acc': 0.802, 'macro_f1': 0.7957388465373605}
+
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 0 result: {'acc': 0.6875, 'macro_f1': 0.643859649122807}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 1 result: {'acc': 0.6875, 'macro_f1': 0.643859649122807}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 2 result: {'acc': 0.65625, 'macro_f1': 0.5907571960203539}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 3 result: {'acc': 0.71875, 'macro_f1': 0.6771929824561403}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 4 result: {'acc': 0.75, 'macro_f1': 0.7307469040247678}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 5 result: {'acc': 0.6875, 'macro_f1': 0.6630566801619433}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 6 result: {'acc': 0.84375, 'macro_f1': 0.8384978991596639}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 7 result: {'acc': 0.78125, 'macro_f1': 0.773342670401494}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 8 result: {'acc': 0.78125, 'macro_f1': 0.773342670401494}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 9 result: {'acc': 0.84375, 'macro_f1': 0.8300653594771241}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 10 result: {'acc': 0.8125, 'macro_f1': 0.8009049773755657}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 11 result: {'acc': 0.8125, 'macro_f1': 0.8023347159376572}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 12 result: {'acc': 0.8125, 'macro_f1': 0.8009049773755657}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 13 result: {'acc': 0.84375, 'macro_f1': 0.8300653594771241}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 14 result: {'acc': 0.8125, 'macro_f1': 0.7904077540106952}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 15 result: {'acc': 0.65625, 'macro_f1': 0.5824175824175825}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 16 result: {'acc': 0.46875, 'macro_f1': 0.35454545454545455}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 17 result: {'acc': 0.40625, 'macro_f1': 0.3065934065934066}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 18 result: {'acc': 0.28125, 'macro_f1': 0.1581196581196581}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 19 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 20 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 21 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 22 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 23 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 24 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 25 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 26 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 27 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+Best layer: 6
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Validation task_vector result: {'acc': 0.84375, 'macro_f1': 0.8384978991596639}
+
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Test task_vector result: {'acc': 0.796, 'macro_f1': 0.7917140194209824}
+
+Removing 1 hooks...
+Evaluate time: 7.017747163772583
+Mean KL divergence (ICL vs I2CL): 0.2377
+(Test query count: 500)
+Run time run_1
+Generated 20-shot demonstration.
+Demonstration:
+News: Soccer spitter accused again English soccer #39;s ruling body charged Bolton forward El-Hadji Diouf with improper conduct for spitting at defender Arjan De Zeeuw during Saturday #39;s 1-0 home loss to Portsmouth.
+Type: Sports
+News: Liverpool 1, Portsmouth 1 (Echo) Wasted chances, edgy crowd, gradual retreat into defence, late panic, strange negative substitution, two points wasted. A pessimistic Liverpool supporter turned around at half-time and said:  quot;It can #39;t get any worse than this.
+Type: Sports
+News: Coeur Still Committed to Wheaton Deal Coeur d #39;Alene Mines Corp. said Tuesday that it remains committed to its takeover bid for Canadian miner Wheaton River Minerals Ltd.
+Type: Business
+News: Delta Pilots Agree to Cuts Delta Air Lines pilots have agreed to slash their salaries by nearly a third and forgo pay raises for five years to help the struggling airline avoid bankruptcy, their union announced Thursday.
+Type: Business
+News: Four Killed in Mosul Gun Attack Gunmen attacked a car in the northern Iraqi city of Mosul on Friday, killing four male passengers, and witnesses said three of the victims were foreigners.
+Type: World
+News: Phillies Closer Ejected in Win Over Mets (AP) AP - Philadelphia closer Billy Wagner was furious after he was ejected in the ninth inning of Saturday's game 11-9, 13-inning win over the New York Mets for throwing two high-and-tight pitches to Cliff Floyd.
+Type: Sports
+News: Veritas Acquires KVS, Gains E-Mail Archiving Capabilities Veritas gets KVS #39;s Enterprise Vault, an app that archives business-critical data held within Microsoft Exchange, SharePoint, Office, and file systems.
+Type: Technology
+News: Another American beheaded BAGHDAD, Sept. 22. - Iraqi officials recovered a decapitated corpse in western Baghdad today and turned it over to US officials, who were investigating if it was the body of Jack Hensley -he second American 
+Type: World
+News: Pen Trick on Bike Locks Could Cost Firms Millions on Friday sought a recall of many U-shaped locks after word spread that an ordinary pen could pick what had been thought to be some of the toughest locks.
+Type: Business
+News: US hits Mosul The US military attacked rebel targets in Mosul with air and ground fire yesterday after an upsurge in violence in the northern Iraqi city.
+Type: World
+News: MS, Dassault form alliance PARIS: Microsoft and Dassault Systemes of France have agreed to form a strategic alliance for Dassault Systemes product lifecycle management (V5 PLM) and 3D design solutions.
+Type: Technology
+News: Verizon, Qwest Ask Court to Block Rules Verizon and Qwest asked a federal court to block temporary rules forcing the companies to lease phone lines to rivals for at least another six months.  &lt;FONT face="verdana,MS Sans Serif,arial,helvetica" size="-2" color="#666666"&gt;&lt;B&gt;-Reuters&lt;/B&gt;&lt;/FONT&gt;
+Type: Technology
+News: Jaguar workers urged to fight closure Jaguar car factory workers will be urged to fight the closure of the plant with a campaign which includes the threat of strike action.
+Type: Business
+News: The Dawn Of HD Radio Broadcasters embrace digital service public knows little about.&lt;FONT face="verdana,MS Sans Serif,arial,helvetica" size="-2" color="#666666"&gt;&lt;B&gt;-washingtonpost.com&lt;/B&gt;&lt;/FONT&gt;
+Type: Technology
+News: New peace hope in post-Arafat era ONE OF Yasser Arafat #39;s least-admired roles in the last few years was as the constantly cited excuse for international futility in Middle Eastern peace efforts.
+Type: World
+News: Bombardier chief executive Tellier quits MONTREAL - Paul Tellier stepped down as as president and chief executive of Bombardier Inc., sending the train and plane maker #39;s shares down as much as 26 percent to a 10-year low on Monday.
+Type: Business
+News: Indonesians Get Ready for Final Round of First Direct Presidential &lt;b&gt;...&lt;/b&gt; Indonesians are preparing to go to the polls Monday in the final round of the country #39;s first-ever democratic presidential election.
+Type: World
+News: Emlyn Hughes, a star on the pitch and the screen, dies aged 57 To football fans he will be remembered as the indomitable leader of the Reds. To many others, the defining memory of Emlyn Hughes will be of a jumper-wearing, quiz-show team captain being berated by Princess Anne for his spelling.
+Type: Sports
+News: McDonald takes one-shot lead over Els in Dunhill Championship Bruce McDonald of Zimbabwe shot a 6-under 66 Thursday to take a one-shot lead over South Africa #39;s Ernie Els at the PGA European Tour #39;s season-opening Dunhill Championship.
+Type: Sports
+News: Saturn reveals new ring and moon Images of Saturn sent back to Earth by the Cassini spacecraft reveal a newly discovered ring and at least one new moon, scientists say.
+Type: Technology
+News: Netflix, TiVo Team Up on Broadband Movie Delivery Netflix and TiVo have signed an agreement to let TiVo subscribers access Netflix #39;s library of movies over broadband Internet connections, the two companies announced Thursday.
+Type:
+
+Baseline demonstration:
+News: Soccer spitter accused again English soccer #39;s ruling body charged Bolton forward El-Hadji Diouf with improper conduct for spitting at defender Arjan De Zeeuw during Saturday #39;s 1-0 home loss to Portsmouth.
+Type: Sports
+News: Liverpool 1, Portsmouth 1 (Echo) Wasted chances, edgy crowd, gradual retreat into defence, late panic, strange negative substitution, two points wasted. A pessimistic Liverpool supporter turned around at half-time and said:  quot;It can #39;t get any worse than this.
+Type: Sports
+News: Coeur Still Committed to Wheaton Deal Coeur d #39;Alene Mines Corp. said Tuesday that it remains committed to its takeover bid for Canadian miner Wheaton River Minerals Ltd.
+Type: Business
+News: Delta Pilots Agree to Cuts Delta Air Lines pilots have agreed to slash their salaries by nearly a third and forgo pay raises for five years to help the struggling airline avoid bankruptcy, their union announced Thursday.
+Type: Business
+News: Four Killed in Mosul Gun Attack Gunmen attacked a car in the northern Iraqi city of Mosul on Friday, killing four male passengers, and witnesses said three of the victims were foreigners.
+Type: World
+News: Phillies Closer Ejected in Win Over Mets (AP) AP - Philadelphia closer Billy Wagner was furious after he was ejected in the ninth inning of Saturday's game 11-9, 13-inning win over the New York Mets for throwing two high-and-tight pitches to Cliff Floyd.
+Type: Sports
+News: Veritas Acquires KVS, Gains E-Mail Archiving Capabilities Veritas gets KVS #39;s Enterprise Vault, an app that archives business-critical data held within Microsoft Exchange, SharePoint, Office, and file systems.
+Type: Technology
+News: Another American beheaded BAGHDAD, Sept. 22. - Iraqi officials recovered a decapitated corpse in western Baghdad today and turned it over to US officials, who were investigating if it was the body of Jack Hensley -he second American 
+Type: World
+News: Pen Trick on Bike Locks Could Cost Firms Millions on Friday sought a recall of many U-shaped locks after word spread that an ordinary pen could pick what had been thought to be some of the toughest locks.
+Type: Business
+News: US hits Mosul The US military attacked rebel targets in Mosul with air and ground fire yesterday after an upsurge in violence in the northern Iraqi city.
+Type: World
+News: MS, Dassault form alliance PARIS: Microsoft and Dassault Systemes of France have agreed to form a strategic alliance for Dassault Systemes product lifecycle management (V5 PLM) and 3D design solutions.
+Type: Technology
+News: Verizon, Qwest Ask Court to Block Rules Verizon and Qwest asked a federal court to block temporary rules forcing the companies to lease phone lines to rivals for at least another six months.  &lt;FONT face="verdana,MS Sans Serif,arial,helvetica" size="-2" color="#666666"&gt;&lt;B&gt;-Reuters&lt;/B&gt;&lt;/FONT&gt;
+Type: Technology
+News: Jaguar workers urged to fight closure Jaguar car factory workers will be urged to fight the closure of the plant with a campaign which includes the threat of strike action.
+Type: Business
+News: The Dawn Of HD Radio Broadcasters embrace digital service public knows little about.&lt;FONT face="verdana,MS Sans Serif,arial,helvetica" size="-2" color="#666666"&gt;&lt;B&gt;-washingtonpost.com&lt;/B&gt;&lt;/FONT&gt;
+Type: Technology
+News: New peace hope in post-Arafat era ONE OF Yasser Arafat #39;s least-admired roles in the last few years was as the constantly cited excuse for international futility in Middle Eastern peace efforts.
+Type: World
+News: Bombardier chief executive Tellier quits MONTREAL - Paul Tellier stepped down as as president and chief executive of Bombardier Inc., sending the train and plane maker #39;s shares down as much as 26 percent to a 10-year low on Monday.
+Type: Business
+News: Indonesians Get Ready for Final Round of First Direct Presidential &lt;b&gt;...&lt;/b&gt; Indonesians are preparing to go to the polls Monday in the final round of the country #39;s first-ever democratic presidential election.
+Type: World
+News: Emlyn Hughes, a star on the pitch and the screen, dies aged 57 To football fans he will be remembered as the indomitable leader of the Reds. To many others, the defining memory of Emlyn Hughes will be of a jumper-wearing, quiz-show team captain being berated by Princess Anne for his spelling.
+Type: Sports
+News: McDonald takes one-shot lead over Els in Dunhill Championship Bruce McDonald of Zimbabwe shot a 6-under 66 Thursday to take a one-shot lead over South Africa #39;s Ernie Els at the PGA European Tour #39;s season-opening Dunhill Championship.
+Type: Sports
+News: Saturn reveals new ring and moon Images of Saturn sent back to Earth by the Cassini spacecraft reveal a newly discovered ring and at least one new moon, scientists say.
+Type: Technology
+
+
+Query demonstration:
+News: Netflix, TiVo Team Up on Broadband Movie Delivery Netflix and TiVo have signed an agreement to let TiVo subscribers access Netflix #39;s library of movies over broadband Internet connections, the two companies announced Thursday.
+Type:
+
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Validation few-shot result: {'acc': 0.84375, 'macro_f1': 0.8452682186234818}
+
+Test few-shot result: {'acc': 0.846, 'macro_f1': 0.8467645970506451}
+
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 0 result: {'acc': 0.6875, 'macro_f1': 0.643859649122807}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 1 result: {'acc': 0.71875, 'macro_f1': 0.6793650793650794}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 2 result: {'acc': 0.65625, 'macro_f1': 0.593841068669444}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 3 result: {'acc': 0.75, 'macro_f1': 0.7371794871794871}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 4 result: {'acc': 0.8125, 'macro_f1': 0.8117647058823528}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 5 result: {'acc': 0.78125, 'macro_f1': 0.7694507290095526}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 6 result: {'acc': 0.84375, 'macro_f1': 0.8384978991596639}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 7 result: {'acc': 0.8125, 'macro_f1': 0.8070436507936508}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 8 result: {'acc': 0.75, 'macro_f1': 0.7371794871794871}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 9 result: {'acc': 0.78125, 'macro_f1': 0.7733507978090022}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 10 result: {'acc': 0.8125, 'macro_f1': 0.8023347159376572}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 11 result: {'acc': 0.71875, 'macro_f1': 0.7096530920060332}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 12 result: {'acc': 0.6875, 'macro_f1': 0.6769607843137254}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 13 result: {'acc': 0.71875, 'macro_f1': 0.6943850267379679}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 14 result: {'acc': 0.65625, 'macro_f1': 0.5904558404558404}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 15 result: {'acc': 0.65625, 'macro_f1': 0.59}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 16 result: {'acc': 0.46875, 'macro_f1': 0.4035714285714286}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 17 result: {'acc': 0.28125, 'macro_f1': 0.1581196581196581}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 18 result: {'acc': 0.28125, 'macro_f1': 0.1581196581196581}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 19 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 20 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 21 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 22 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 23 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 24 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 25 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 26 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 27 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+Best layer: 6
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Validation task_vector result: {'acc': 0.84375, 'macro_f1': 0.8384978991596639}
+
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Test task_vector result: {'acc': 0.8, 'macro_f1': 0.7967893438776795}
+
+Removing 1 hooks...
+Evaluate time: 7.033339500427246
+Mean KL divergence (ICL vs I2CL): 0.2386
+(Test query count: 500)
+Run time run_2
+Generated 20-shot demonstration.
+Demonstration:
+News: Oracle Softens up PeopleSoft Larry Ellison might not wear a red suit and a white beard, but he sure knows how to deliver the goods for his investors. Next stop after the PeopleSoft acquisition? Germany, the home base of rival SAP. &lt;FONT face="verdana,MS Sans Serif,arial,helvetica" size="-2" color="#666666"&gt;&lt;B&gt;-washingtonpost.com&lt;/b&gt;&lt;/font&gt;
+Type: Technology
+News: No Certainty Harris Will Return to Pitt (AP) AP - Utah's Urban Meyer is leaving after the Fiesta Bowl, having already signed on to become Florida's coach. The question is whether Pitt coach Walt Harris might be going elsewhere, too.
+Type: Sports
+News: Saboteurs blow up Iraq oil pipeline Saboteurs blew up an export pipeline in southern Iraq today in the latest in a series of attacks targeting the volatile countrys crucial oil industry.
+Type: World
+News: Powerful blast kills 15 Iraqis in Tikrit A huge explosion rocked the northern Iraqi city of Tikrit, killing 15 Iraqis, police and doctors have said. Eight others were seriously wounded in the blast, which occurred around 17:00 GMT on Sunday, local doctors have said.
+Type: World
+News: IBM Increases Storage Space When IBM (Quote, Chart) unveiled its new, high-octane storage server at an event in New York Tuesday, it became apparent the company made some headway in taking virtualization features from its mainframe systems and dropping them into its storage line.
+Type: Technology
+News: AFA-CWA Wins Review of Bankruptcy Judge Decision The federal judge overseeing US Airways #39; bankruptcy petition is reconsidering his decision to allow the airline to cut wages for flight attendants by 21 percent for four months.
+Type: Business
+News: New legume disease discovered in the US United States authorities have confirmed they #39;ve found a new legume disease for the first time. Asian soybean rust has been confirmed in two plots at a research station in Louisiana.
+Type: Business
+News: Cowboys' Jones Out With Broken Shoulder (AP) AP - Cowboys rookie running back Julius Jones broke his left shoulder and is expected to be out about two months.
+Type: Sports
+News: Namibia votes to elect new leader Voting starts in Namibia's presidential poll, which will elect a successor to veteran leader Sam Nujoma.
+Type: World
+News: A Legal Gun in the Open-Source Corral Who says litigation is always bad for business? SCO Group #39;s (SCOX ) litigation against sellers or users of the Linux open-source software operating system created a market opportunity for venture capitalist Daniel Egger.
+Type: Technology
+News: Symantec plugs holes in firewall Security specialist issues patches for vulnerabilities that could have allowed denial-of-service attacks against some hardware models.
+Type: Technology
+News: Corel Corporation acquires Jasc Software Corel Corporation has expanded its software portfolio with the acquisition of Jasc Software, which produces the Paint Shop family of image editing and digital photography programs.
+Type: Business
+News: Bush senior: US will work with Blair on Mideast Prime Minister Tony Blair #39;s call for a new Mideast peace push  quot;was heard loud and clear in Washington, quot; former US President George HW Bush said in comments broadcast Sunday.
+Type: World
+News: IBM Rolls Out Low-End Express Servers (NewsFactor) NewsFactor - Taking aim at mid-market businesses, as well as its competition in the server space, IBM (NYSE: IBM) is delivering two new Unix-based products designed to meet the company's cost-conscious Express guidelines.
+Type: Technology
+News: Youkilis makes another jump -- Series roster He opened the season as a Red Sox prospect -- nothing more, nothing less, except for his celebrated distinction as  quot;The Greek God of Walks quot; in the bestseller  quot;Moneyball. quot; So imagine how far Kevin Youkilis has come, from picking up some tips from the big leaguers in spring training to playing third base for Triple A Pawtucket to, well, the ...
+Type: Sports
+News: Oil on record run Brent crude sets intraday mark in London, US crude comes close as supply concerns plague market. LONDON (Reuters) - London oil prices hit record highs on Monday as worries about the stability of supplies from 
+Type: Business
+News: Todd MacCulloch Retires Philadelphia 76ers President and General Manager Billy King announced today that center Todd MacCulloch will retire from the game of basketball.
+Type: Sports
+News: Speak no evil, just in Casey GOLF, as someone once said with a stunning lack of humour, can be a funny old game. Not always though. This week at least, Paul Casey hasnt spent a lot of time laughing.
+Type: Sports
+News: Plane crash in China kills more than 50 people The Transportation Safety Board of Canada is sending a team to China, where a Canadian-built commuter plane crashed in an ice-covered lake in northern China on Sunday.
+Type: World
+News: Stocks Up on Conflicting Economic Reports Stocks inched higher in quiet trading Wednesday as a pair of government reports offered conflicting signals about the economy and oil prices declined.
+Type: Business
+News: Acquitted TAP executive to lead company TAP Pharmaceutical Products Inc. #39;s new president starts today, about a month after he and others were acquitted of federal grand jury charges of kickbacks and conspiracy.
+Type:
+
+Baseline demonstration:
+News: Oracle Softens up PeopleSoft Larry Ellison might not wear a red suit and a white beard, but he sure knows how to deliver the goods for his investors. Next stop after the PeopleSoft acquisition? Germany, the home base of rival SAP. &lt;FONT face="verdana,MS Sans Serif,arial,helvetica" size="-2" color="#666666"&gt;&lt;B&gt;-washingtonpost.com&lt;/b&gt;&lt;/font&gt;
+Type: Technology
+News: No Certainty Harris Will Return to Pitt (AP) AP - Utah's Urban Meyer is leaving after the Fiesta Bowl, having already signed on to become Florida's coach. The question is whether Pitt coach Walt Harris might be going elsewhere, too.
+Type: Sports
+News: Saboteurs blow up Iraq oil pipeline Saboteurs blew up an export pipeline in southern Iraq today in the latest in a series of attacks targeting the volatile countrys crucial oil industry.
+Type: World
+News: Powerful blast kills 15 Iraqis in Tikrit A huge explosion rocked the northern Iraqi city of Tikrit, killing 15 Iraqis, police and doctors have said. Eight others were seriously wounded in the blast, which occurred around 17:00 GMT on Sunday, local doctors have said.
+Type: World
+News: IBM Increases Storage Space When IBM (Quote, Chart) unveiled its new, high-octane storage server at an event in New York Tuesday, it became apparent the company made some headway in taking virtualization features from its mainframe systems and dropping them into its storage line.
+Type: Technology
+News: AFA-CWA Wins Review of Bankruptcy Judge Decision The federal judge overseeing US Airways #39; bankruptcy petition is reconsidering his decision to allow the airline to cut wages for flight attendants by 21 percent for four months.
+Type: Business
+News: New legume disease discovered in the US United States authorities have confirmed they #39;ve found a new legume disease for the first time. Asian soybean rust has been confirmed in two plots at a research station in Louisiana.
+Type: Business
+News: Cowboys' Jones Out With Broken Shoulder (AP) AP - Cowboys rookie running back Julius Jones broke his left shoulder and is expected to be out about two months.
+Type: Sports
+News: Namibia votes to elect new leader Voting starts in Namibia's presidential poll, which will elect a successor to veteran leader Sam Nujoma.
+Type: World
+News: A Legal Gun in the Open-Source Corral Who says litigation is always bad for business? SCO Group #39;s (SCOX ) litigation against sellers or users of the Linux open-source software operating system created a market opportunity for venture capitalist Daniel Egger.
+Type: Technology
+News: Symantec plugs holes in firewall Security specialist issues patches for vulnerabilities that could have allowed denial-of-service attacks against some hardware models.
+Type: Technology
+News: Corel Corporation acquires Jasc Software Corel Corporation has expanded its software portfolio with the acquisition of Jasc Software, which produces the Paint Shop family of image editing and digital photography programs.
+Type: Business
+News: Bush senior: US will work with Blair on Mideast Prime Minister Tony Blair #39;s call for a new Mideast peace push  quot;was heard loud and clear in Washington, quot; former US President George HW Bush said in comments broadcast Sunday.
+Type: World
+News: IBM Rolls Out Low-End Express Servers (NewsFactor) NewsFactor - Taking aim at mid-market businesses, as well as its competition in the server space, IBM (NYSE: IBM) is delivering two new Unix-based products designed to meet the company's cost-conscious Express guidelines.
+Type: Technology
+News: Youkilis makes another jump -- Series roster He opened the season as a Red Sox prospect -- nothing more, nothing less, except for his celebrated distinction as  quot;The Greek God of Walks quot; in the bestseller  quot;Moneyball. quot; So imagine how far Kevin Youkilis has come, from picking up some tips from the big leaguers in spring training to playing third base for Triple A Pawtucket to, well, the ...
+Type: Sports
+News: Oil on record run Brent crude sets intraday mark in London, US crude comes close as supply concerns plague market. LONDON (Reuters) - London oil prices hit record highs on Monday as worries about the stability of supplies from 
+Type: Business
+News: Todd MacCulloch Retires Philadelphia 76ers President and General Manager Billy King announced today that center Todd MacCulloch will retire from the game of basketball.
+Type: Sports
+News: Speak no evil, just in Casey GOLF, as someone once said with a stunning lack of humour, can be a funny old game. Not always though. This week at least, Paul Casey hasnt spent a lot of time laughing.
+Type: Sports
+News: Plane crash in China kills more than 50 people The Transportation Safety Board of Canada is sending a team to China, where a Canadian-built commuter plane crashed in an ice-covered lake in northern China on Sunday.
+Type: World
+News: Stocks Up on Conflicting Economic Reports Stocks inched higher in quiet trading Wednesday as a pair of government reports offered conflicting signals about the economy and oil prices declined.
+Type: Business
+
+
+Query demonstration:
+News: Acquitted TAP executive to lead company TAP Pharmaceutical Products Inc. #39;s new president starts today, about a month after he and others were acquitted of federal grand jury charges of kickbacks and conspiracy.
+Type:
+
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Validation few-shot result: {'acc': 0.78125, 'macro_f1': 0.7650186071238703}
+
+Test few-shot result: {'acc': 0.828, 'macro_f1': 0.8256557498193259}
+
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 0 result: {'acc': 0.6875, 'macro_f1': 0.643859649122807}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 1 result: {'acc': 0.6875, 'macro_f1': 0.643859649122807}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 2 result: {'acc': 0.65625, 'macro_f1': 0.5907571960203539}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 3 result: {'acc': 0.75, 'macro_f1': 0.7240829346092504}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 4 result: {'acc': 0.75, 'macro_f1': 0.7376283846872083}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 5 result: {'acc': 0.6875, 'macro_f1': 0.6630566801619433}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 6 result: {'acc': 0.78125, 'macro_f1': 0.7706224696356275}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 7 result: {'acc': 0.75, 'macro_f1': 0.7371794871794871}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 8 result: {'acc': 0.75, 'macro_f1': 0.7388503309555942}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 9 result: {'acc': 0.8125, 'macro_f1': 0.8009049773755657}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 10 result: {'acc': 0.8125, 'macro_f1': 0.8078431372549019}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 11 result: {'acc': 0.78125, 'macro_f1': 0.7733507978090022}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 12 result: {'acc': 0.78125, 'macro_f1': 0.7733507978090022}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 13 result: {'acc': 0.78125, 'macro_f1': 0.7710084033613445}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 14 result: {'acc': 0.71875, 'macro_f1': 0.7008738277919864}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 15 result: {'acc': 0.5, 'macro_f1': 0.375}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 16 result: {'acc': 0.5, 'macro_f1': 0.375}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 17 result: {'acc': 0.46875, 'macro_f1': 0.35454545454545455}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 18 result: {'acc': 0.28125, 'macro_f1': 0.1581196581196581}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 19 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 20 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 21 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 22 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 23 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 24 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 25 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 26 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 27 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+Best layer: 9
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Validation task_vector result: {'acc': 0.8125, 'macro_f1': 0.8009049773755657}
+
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Test task_vector result: {'acc': 0.802, 'macro_f1': 0.8012482161972883}
+
+Removing 1 hooks...
+Evaluate time: 7.03648042678833
+Mean KL divergence (ICL vs I2CL): 0.1466
+(Test query count: 500)
+Run time run_3
+Generated 20-shot demonstration.
+Demonstration:
+News: Rabbis anger Israeli military leaders Israel #39;s chief of military staff has denounced leading rabbis for urging soldiers to defy orders to forcibly remove settlers from Gaza, The Telegraph reported.
+Type: World
+News: Bush Calls Kerry Health Plan Bureaucratic Nightmare (Reuters) Reuters - President Bush derided Democrat\John Kerry's plan for reforming health care on Monday as a\bureaucratic nightmare and contended it would cost  #36;1.5\trillion.
+Type: World
+News: Panthers running back out 2-5 weeks The news got worse for the Carolina Panthers Friday. Running back Stephen Davis was sidelined with a knee injury days after star receiver Steve Smith broke his leg.
+Type: Sports
+News: You can keep it late -- but if you keep it too late, you own it DALLAS Blockbuster is eliminating late fees on games and movies, but there #39;s a catch: If you keep it too long, you #39;ve bought it.
+Type: Business
+News: Despite judging error, Hamm #39;s gold medal shows no tarnish Let me be clear here, since some self-righteous columnists who wouldn #39;t know a handstand from a night stand have entered the fray: Paul Hamm should not give up his gold medal.
+Type: Sports
+News: Hotspot operators strike international roaming deal Five international wireless operators, including BT, have signed a series of roaming agreements to provide Wi-Fi access at 20,000 hotspots across eleven countries.
+Type: Technology
+News: Bollywood megastar Bachchan meets Pakistani students to boost ties (AFP) AFP - Bollywood mega star Amitabh Bachchan met with a group of Pakistani students as part of a wider initiative to deepen cultural ties between India and Pakistan.
+Type: World
+News: England restrict South Africa to 273/7 Matthew Hoggard and Andrew Flintoff claimed three wickets each as England restricted South Africa to 273 for seven on day one of the First Test in Port Elizabeth on Friday.
+Type: Sports
+News: Congo Pulls Diplomats Out of Burundi (Reuters) Reuters - The Democratic Republic of Congo has\pulled all of its diplomats out of neighboring Burundi\following the slaughter of Congolese Tutsi refugees there last\week, its foreign minister said on Friday.
+Type: World
+News: Weathermen to get Visualization Supercomputer Maverick combines highly sophisticated visualization technology with a high-bandwidth next generation network to tackle some of the nation #39;s most pressing concerns, including Emergency Response Management and Flood Modeling (specifically for the state of 
+Type: Technology
+News: Utility computing spec takes refuge in OASIS Data Center Markup Language Organization joins XML body to broaden industry adoption.
+Type: Technology
+News: The Future of Radio? He sold the soul of rock 'n' roll and turned FM into a musical wasteland. Now he has 130 satellite channels and says we won't get fooled again. By Richard Martin from Wired magazine.
+Type: Technology
+News: Seagate Raises Revenue Forecast Seagate Technology (STX.N: Quote, Profile, Research) , the top US maker of hard drives used to store data in computers, on Tuesday forecast quarterly revenue above Wall Street estimates on strong demand for storage for larger business 
+Type: Business
+News: Clarke criticises princes views on education CHARLES Clarke, the education secretary, broke with government protocol yesterday to condemn the Prince of Wales for claiming that modern education wrongly encouraged people to think they could rise above their station.
+Type: World
+News: Hard Labour Pays Off for World Number One Singh If success is earned by those who work the hardest, then newly crowned world number one Vijay Singh is a shining example. It has been a long, and often grueling, global 
+Type: Sports
+News: Stelios enters online music fray The founder of Easyjet has confirmed he is entering the online music market in a partnership with UK-based Wippit. Stelios Haji-Ioannou #39;s move comes as Microsoft and Yahoo revealed challenges to the likes 
+Type: Technology
+News: Eurostar turns 10 years old LONDON, England -- Eurostar, the high-speed passenger services, is celebrating 10 years of service between Britain, France and Belgium.
+Type: Business
+News: Bilonog Edges Nelson With Last Put as Shot Returns to Olympia Aug. 18 (Bloomberg) -- Yuriy Bilonog won the gold medal in the men #39;s shot put at Olympia, the home of the ancient Games, by virtue of his second-best effort after his last throw matched the leading mark set by US athlete Adam Nelson. 
+Type: Sports
+News: Florida shrimpers win victory on tariffs against imported shrimp The Bush administration Tuesday upheld a decision to impose penalty tariffs on shrimp imported from China and Vietnam, handing a victory to beleaguered US shrimp producers from Florida and other states.
+Type: Business
+News: Sources: Sprint, Nextel closing in on \$36B deal DECEMBER 10, 2004 (REUTERS) - Sprint Corp. is in advanced talks to buy Nextel Communications Inc. for more than \$36 billion in a mostly stock deal that would combine the No.
+Type: Business
+News: Ballot counting begins in Afghanistan Counting of ballots began in Afghanistan Thursday, five days after the country #39;s first direct elections for president, the BBC reported.
+Type:
+
+Baseline demonstration:
+News: Rabbis anger Israeli military leaders Israel #39;s chief of military staff has denounced leading rabbis for urging soldiers to defy orders to forcibly remove settlers from Gaza, The Telegraph reported.
+Type: World
+News: Bush Calls Kerry Health Plan Bureaucratic Nightmare (Reuters) Reuters - President Bush derided Democrat\John Kerry's plan for reforming health care on Monday as a\bureaucratic nightmare and contended it would cost  #36;1.5\trillion.
+Type: World
+News: Panthers running back out 2-5 weeks The news got worse for the Carolina Panthers Friday. Running back Stephen Davis was sidelined with a knee injury days after star receiver Steve Smith broke his leg.
+Type: Sports
+News: You can keep it late -- but if you keep it too late, you own it DALLAS Blockbuster is eliminating late fees on games and movies, but there #39;s a catch: If you keep it too long, you #39;ve bought it.
+Type: Business
+News: Despite judging error, Hamm #39;s gold medal shows no tarnish Let me be clear here, since some self-righteous columnists who wouldn #39;t know a handstand from a night stand have entered the fray: Paul Hamm should not give up his gold medal.
+Type: Sports
+News: Hotspot operators strike international roaming deal Five international wireless operators, including BT, have signed a series of roaming agreements to provide Wi-Fi access at 20,000 hotspots across eleven countries.
+Type: Technology
+News: Bollywood megastar Bachchan meets Pakistani students to boost ties (AFP) AFP - Bollywood mega star Amitabh Bachchan met with a group of Pakistani students as part of a wider initiative to deepen cultural ties between India and Pakistan.
+Type: World
+News: England restrict South Africa to 273/7 Matthew Hoggard and Andrew Flintoff claimed three wickets each as England restricted South Africa to 273 for seven on day one of the First Test in Port Elizabeth on Friday.
+Type: Sports
+News: Congo Pulls Diplomats Out of Burundi (Reuters) Reuters - The Democratic Republic of Congo has\pulled all of its diplomats out of neighboring Burundi\following the slaughter of Congolese Tutsi refugees there last\week, its foreign minister said on Friday.
+Type: World
+News: Weathermen to get Visualization Supercomputer Maverick combines highly sophisticated visualization technology with a high-bandwidth next generation network to tackle some of the nation #39;s most pressing concerns, including Emergency Response Management and Flood Modeling (specifically for the state of 
+Type: Technology
+News: Utility computing spec takes refuge in OASIS Data Center Markup Language Organization joins XML body to broaden industry adoption.
+Type: Technology
+News: The Future of Radio? He sold the soul of rock 'n' roll and turned FM into a musical wasteland. Now he has 130 satellite channels and says we won't get fooled again. By Richard Martin from Wired magazine.
+Type: Technology
+News: Seagate Raises Revenue Forecast Seagate Technology (STX.N: Quote, Profile, Research) , the top US maker of hard drives used to store data in computers, on Tuesday forecast quarterly revenue above Wall Street estimates on strong demand for storage for larger business 
+Type: Business
+News: Clarke criticises princes views on education CHARLES Clarke, the education secretary, broke with government protocol yesterday to condemn the Prince of Wales for claiming that modern education wrongly encouraged people to think they could rise above their station.
+Type: World
+News: Hard Labour Pays Off for World Number One Singh If success is earned by those who work the hardest, then newly crowned world number one Vijay Singh is a shining example. It has been a long, and often grueling, global 
+Type: Sports
+News: Stelios enters online music fray The founder of Easyjet has confirmed he is entering the online music market in a partnership with UK-based Wippit. Stelios Haji-Ioannou #39;s move comes as Microsoft and Yahoo revealed challenges to the likes 
+Type: Technology
+News: Eurostar turns 10 years old LONDON, England -- Eurostar, the high-speed passenger services, is celebrating 10 years of service between Britain, France and Belgium.
+Type: Business
+News: Bilonog Edges Nelson With Last Put as Shot Returns to Olympia Aug. 18 (Bloomberg) -- Yuriy Bilonog won the gold medal in the men #39;s shot put at Olympia, the home of the ancient Games, by virtue of his second-best effort after his last throw matched the leading mark set by US athlete Adam Nelson. 
+Type: Sports
+News: Florida shrimpers win victory on tariffs against imported shrimp The Bush administration Tuesday upheld a decision to impose penalty tariffs on shrimp imported from China and Vietnam, handing a victory to beleaguered US shrimp producers from Florida and other states.
+Type: Business
+News: Sources: Sprint, Nextel closing in on \$36B deal DECEMBER 10, 2004 (REUTERS) - Sprint Corp. is in advanced talks to buy Nextel Communications Inc. for more than \$36 billion in a mostly stock deal that would combine the No.
+Type: Business
+
+
+Query demonstration:
+News: Ballot counting begins in Afghanistan Counting of ballots began in Afghanistan Thursday, five days after the country #39;s first direct elections for president, the BBC reported.
+Type:
+
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Validation few-shot result: {'acc': 0.71875, 'macro_f1': 0.6867647058823529}
+
+Test few-shot result: {'acc': 0.838, 'macro_f1': 0.8367580170596022}
+
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 0 result: {'acc': 0.6875, 'macro_f1': 0.643859649122807}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 1 result: {'acc': 0.6875, 'macro_f1': 0.643859649122807}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 2 result: {'acc': 0.65625, 'macro_f1': 0.593841068669444}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 3 result: {'acc': 0.71875, 'macro_f1': 0.6771929824561403}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 4 result: {'acc': 0.78125, 'macro_f1': 0.7712889643036702}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 5 result: {'acc': 0.6875, 'macro_f1': 0.6630566801619433}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 6 result: {'acc': 0.8125, 'macro_f1': 0.8072478991596639}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 7 result: {'acc': 0.8125, 'macro_f1': 0.8070436507936508}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 8 result: {'acc': 0.78125, 'macro_f1': 0.7705128205128206}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 9 result: {'acc': 0.84375, 'macro_f1': 0.8300653594771241}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 10 result: {'acc': 0.8125, 'macro_f1': 0.8009049773755657}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 11 result: {'acc': 0.8125, 'macro_f1': 0.7880664227413453}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 12 result: {'acc': 0.8125, 'macro_f1': 0.7883244206773619}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 13 result: {'acc': 0.8125, 'macro_f1': 0.7883244206773619}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 14 result: {'acc': 0.71875, 'macro_f1': 0.6686905822935235}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 15 result: {'acc': 0.53125, 'macro_f1': 0.4512032085561497}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 16 result: {'acc': 0.46875, 'macro_f1': 0.34819734345351044}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 17 result: {'acc': 0.4375, 'macro_f1': 0.328125}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 18 result: {'acc': 0.3125, 'macro_f1': 0.20526315789473687}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 19 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 20 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 21 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 22 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 23 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 24 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 25 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 26 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 27 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+Best layer: 9
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Validation task_vector result: {'acc': 0.84375, 'macro_f1': 0.8300653594771241}
+
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Test task_vector result: {'acc': 0.812, 'macro_f1': 0.811932005643281}
+
+Removing 1 hooks...
+Evaluate time: 6.714340925216675
+Mean KL divergence (ICL vs I2CL): 0.1413
+(Test query count: 500)
+Run time run_4
+Generated 20-shot demonstration.
+Demonstration:
+News: Australia Braces for Locust Plague New South Wales, Australia, is bracing for what authorities predict will be the worst locust plague in 25 years.
+Type: Technology
+News: Astros #39; Backe living out a dream CBC SPORTS ONLINE - The Houston Astros aren #39;t pitching future Hall of Famer Roger Clemens or 20-game-winner Roy Oswalt in Game 1 of the National League Championship Series.
+Type: Sports
+News: U.S. Seeks Cuts in Housing Aid to Urban Poor The Bush administration has proposed reducing the value of subsidized-housing vouchers in New York City and some urban areas of New England.
+Type: World
+News: Investigators dig up mass grave seeking evidence to nail Saddam HATRA, Iraq, Oct 13 (AFP) - Forensic experts digging for evidence against ousted Iraqi dictator Saddam Hussein have carried out their first full exhumation of a mass grave filled with the skeletons of scores of women and children, many shot in the back of 
+Type: World
+News: SEC Delays Annual Report Filing Deadline  WASHINGTON (Reuters) - The U.S. Securities and Exchange  Commission said on Wednesday it was postponing by one year a  deadline for large corporations to speed up filing of  annual  and quarterly financial reports with the SEC.
+Type: Business
+News: It's Styles That Make Fights, Even Among Trainers Unbidden, Floyd Mayweather Sr. will tell you how good he is as a trainer. It doesn't hurt that he trains Oscar De La Hoya.
+Type: Sports
+News: Colgate-Palmolive, Unilever warn of disappointments Two consumer products giants - Colgate-Palmolive (CL) and Unilever (UL) warned Monday of disappointing outlooks as consumer goods firms across the world struggle with a slowdown in spending by shoppers.
+Type: Business
+News: Even in defeat, Seattle gains confidence But to play as feebly as it did for about 35 minutes last night in Game 1 of the WNBA Finals and lose by only four points -- on the road, no less -- has to be the best confidence builder since Cindy St.
+Type: Sports
+News: Three Rivals To Release Networking Devices That Target Convergence &lt;b&gt;...&lt;/b&gt; Networking rivals Cisco, 3Com and Enterasys all will release a series of products this month designed to upgrade the infrastructures of businesses of all sizes.
+Type: Technology
+News: Oil Surges Over \$48 After Supply Drop  NEW YORK (Reuters) - Oil prices climbed to within a dollar  of a new record on Wednesday after the U.S. government reported  a big decline in oil stockpiles because of disruptions from  Hurricane Ivan.
+Type: Business
+News: FAA OKs Tasers on Commercial Flights  NEW YORK (Reuters) - Stun gun maker Taser International  Inc. &lt;A HREF="http://www.investor.reuters.com/FullQuote.aspx?ticker=TASR.O target=/stocks/quickinfo/fullquote"&gt;TASR.O&lt;/A&gt; on Monday said it won U.S. government approval to  use its products on some commercial airline flights to protect  passengers from potential harm.
+Type: Business
+News: Vote counting under way in Afghan election, Karzai expected to win KABUL, Afghanistan Early results show interim Afghan president Hamid Karzai leading in that country #39;s first free presidential election.
+Type: World
+News: Unprecedented Electronic Digital Net for Olympics By MIRON VAROUHAKIS      ATHENS, Greece (AP) -- If you're planning on attending this month's Olympic Games, you'd best be careful what you say and do in public.    Software will be watching and listening...
+Type: Technology
+News: Hackers Smell Blood In Common Windows Interface Since Wednesday, a rising tide of attacks which could precede the arrival of a new worm have been attempting to exploit the Windows GDI (graphic device interface) for JPEG files, according to the Internet Storm Center, Bethesda, MD.
+Type: Technology
+News: DHS official: safer software is everyone #39;s responsibility Imposing government security standards on software companies is not the answer to improving the security of the country #39;s computer networks, a US Department of Homeland Security official said Thursday.
+Type: Technology
+News: Seahawks Stuff Packers Fourth-string quarterback Seneca Wallace led Seattle on two touchdown drives as the Seahawks defeated the Packers, 21-3, on Monday night.
+Type: Sports
+News: Stocks Shift Lower on Merck's Vioxx Woes NEW YORK - Investors sent stocks mostly lower Thursday after Merck   Co. said it would be forced to remove its best-selling Vioxx arthritis drug from the market due to serious health risks...
+Type: World
+News: Collapse in judgment: C #39;s fall apart late in loss to Blazers The Celtics were playing their only national television game of the season last night, so the rest of the country now knows about your club #39;s late-game lapses.
+Type: Sports
+News: Ameircan deaths The Pentagon has released the names of the following US service members killed recently in Iraq. As of Saturday, at least 1,269 members of the military have died since the Iraq war began in March 2003, according to an Associated Press count.
+Type: World
+News: PeopleSoft board rejects Oracle #39;s best and last offer Defining the word unsurprising, PeopleSoft #39;s board of directors unanimously rejected Oracle #39;s  quot;best and final quot; \$24 per share offer for the company.
+Type: Business
+News: Colgate-Palmolive, Unilever issue warnings Colgate-Palmolive Co. and Unilever NV warned of profit shortfalls Monday, leading an overall decline for stocks in consumer goods makers, who face tougher competition and increased 
+Type:
+
+Baseline demonstration:
+News: Australia Braces for Locust Plague New South Wales, Australia, is bracing for what authorities predict will be the worst locust plague in 25 years.
+Type: Technology
+News: Astros #39; Backe living out a dream CBC SPORTS ONLINE - The Houston Astros aren #39;t pitching future Hall of Famer Roger Clemens or 20-game-winner Roy Oswalt in Game 1 of the National League Championship Series.
+Type: Sports
+News: U.S. Seeks Cuts in Housing Aid to Urban Poor The Bush administration has proposed reducing the value of subsidized-housing vouchers in New York City and some urban areas of New England.
+Type: World
+News: Investigators dig up mass grave seeking evidence to nail Saddam HATRA, Iraq, Oct 13 (AFP) - Forensic experts digging for evidence against ousted Iraqi dictator Saddam Hussein have carried out their first full exhumation of a mass grave filled with the skeletons of scores of women and children, many shot in the back of 
+Type: World
+News: SEC Delays Annual Report Filing Deadline  WASHINGTON (Reuters) - The U.S. Securities and Exchange  Commission said on Wednesday it was postponing by one year a  deadline for large corporations to speed up filing of  annual  and quarterly financial reports with the SEC.
+Type: Business
+News: It's Styles That Make Fights, Even Among Trainers Unbidden, Floyd Mayweather Sr. will tell you how good he is as a trainer. It doesn't hurt that he trains Oscar De La Hoya.
+Type: Sports
+News: Colgate-Palmolive, Unilever warn of disappointments Two consumer products giants - Colgate-Palmolive (CL) and Unilever (UL) warned Monday of disappointing outlooks as consumer goods firms across the world struggle with a slowdown in spending by shoppers.
+Type: Business
+News: Even in defeat, Seattle gains confidence But to play as feebly as it did for about 35 minutes last night in Game 1 of the WNBA Finals and lose by only four points -- on the road, no less -- has to be the best confidence builder since Cindy St.
+Type: Sports
+News: Three Rivals To Release Networking Devices That Target Convergence &lt;b&gt;...&lt;/b&gt; Networking rivals Cisco, 3Com and Enterasys all will release a series of products this month designed to upgrade the infrastructures of businesses of all sizes.
+Type: Technology
+News: Oil Surges Over \$48 After Supply Drop  NEW YORK (Reuters) - Oil prices climbed to within a dollar  of a new record on Wednesday after the U.S. government reported  a big decline in oil stockpiles because of disruptions from  Hurricane Ivan.
+Type: Business
+News: FAA OKs Tasers on Commercial Flights  NEW YORK (Reuters) - Stun gun maker Taser International  Inc. &lt;A HREF="http://www.investor.reuters.com/FullQuote.aspx?ticker=TASR.O target=/stocks/quickinfo/fullquote"&gt;TASR.O&lt;/A&gt; on Monday said it won U.S. government approval to  use its products on some commercial airline flights to protect  passengers from potential harm.
+Type: Business
+News: Vote counting under way in Afghan election, Karzai expected to win KABUL, Afghanistan Early results show interim Afghan president Hamid Karzai leading in that country #39;s first free presidential election.
+Type: World
+News: Unprecedented Electronic Digital Net for Olympics By MIRON VAROUHAKIS      ATHENS, Greece (AP) -- If you're planning on attending this month's Olympic Games, you'd best be careful what you say and do in public.    Software will be watching and listening...
+Type: Technology
+News: Hackers Smell Blood In Common Windows Interface Since Wednesday, a rising tide of attacks which could precede the arrival of a new worm have been attempting to exploit the Windows GDI (graphic device interface) for JPEG files, according to the Internet Storm Center, Bethesda, MD.
+Type: Technology
+News: DHS official: safer software is everyone #39;s responsibility Imposing government security standards on software companies is not the answer to improving the security of the country #39;s computer networks, a US Department of Homeland Security official said Thursday.
+Type: Technology
+News: Seahawks Stuff Packers Fourth-string quarterback Seneca Wallace led Seattle on two touchdown drives as the Seahawks defeated the Packers, 21-3, on Monday night.
+Type: Sports
+News: Stocks Shift Lower on Merck's Vioxx Woes NEW YORK - Investors sent stocks mostly lower Thursday after Merck   Co. said it would be forced to remove its best-selling Vioxx arthritis drug from the market due to serious health risks...
+Type: World
+News: Collapse in judgment: C #39;s fall apart late in loss to Blazers The Celtics were playing their only national television game of the season last night, so the rest of the country now knows about your club #39;s late-game lapses.
+Type: Sports
+News: Ameircan deaths The Pentagon has released the names of the following US service members killed recently in Iraq. As of Saturday, at least 1,269 members of the military have died since the Iraq war began in March 2003, according to an Associated Press count.
+Type: World
+News: PeopleSoft board rejects Oracle #39;s best and last offer Defining the word unsurprising, PeopleSoft #39;s board of directors unanimously rejected Oracle #39;s  quot;best and final quot; \$24 per share offer for the company.
+Type: Business
+
+
+Query demonstration:
+News: Colgate-Palmolive, Unilever issue warnings Colgate-Palmolive Co. and Unilever NV warned of profit shortfalls Monday, leading an overall decline for stocks in consumer goods makers, who face tougher competition and increased 
+Type:
+
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Validation few-shot result: {'acc': 0.71875, 'macro_f1': 0.6647660818713451}
+
+Test few-shot result: {'acc': 0.83, 'macro_f1': 0.8268373120733239}
+
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 0 result: {'acc': 0.65625, 'macro_f1': 0.5907571960203539}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 1 result: {'acc': 0.6875, 'macro_f1': 0.6461906514538093}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 2 result: {'acc': 0.625, 'macro_f1': 0.5577485380116959}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 3 result: {'acc': 0.71875, 'macro_f1': 0.6771929824561403}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 4 result: {'acc': 0.78125, 'macro_f1': 0.7589869281045752}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 5 result: {'acc': 0.75, 'macro_f1': 0.729970760233918}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 6 result: {'acc': 0.78125, 'macro_f1': 0.7604166666666666}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 7 result: {'acc': 0.84375, 'macro_f1': 0.8384978991596639}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 8 result: {'acc': 0.75, 'macro_f1': 0.7371794871794871}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 9 result: {'acc': 0.8125, 'macro_f1': 0.7880664227413453}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 10 result: {'acc': 0.8125, 'macro_f1': 0.7880664227413453}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 11 result: {'acc': 0.8125, 'macro_f1': 0.7880664227413453}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 12 result: {'acc': 0.78125, 'macro_f1': 0.7621339444868857}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 13 result: {'acc': 0.6875, 'macro_f1': 0.6558069381598793}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 14 result: {'acc': 0.5625, 'macro_f1': 0.49444444444444446}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 15 result: {'acc': 0.5, 'macro_f1': 0.375}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 16 result: {'acc': 0.46875, 'macro_f1': 0.35454545454545455}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 17 result: {'acc': 0.5, 'macro_f1': 0.375}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 18 result: {'acc': 0.34375, 'macro_f1': 0.24447174447174447}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 19 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 20 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 21 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 22 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 23 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 24 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 25 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 26 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Layer 27 result: {'acc': 0.25, 'macro_f1': 0.1}
+
+Removing 1 hooks...
+Best layer: 7
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Validation task_vector result: {'acc': 0.84375, 'macro_f1': 0.8384978991596639}
+
+ans_txt:  World, ans_tok: 2159
+ans_txt:  Sports, ans_tok: 7092
+ans_txt:  Business, ans_tok: 7320
+ans_txt:  Technology, ans_tok: 8987
+label_map: {2159: 0, 7092: 1, 7320: 2, 8987: 3}
+Test task_vector result: {'acc': 0.78, 'macro_f1': 0.7791206600417127}
+
+Removing 1 hooks...
+Evaluate time: 7.06984543800354
+Mean KL divergence (ICL vs I2CL): 0.2314
+(Test query count: 500)
+CUDA memory cleared for GPU 3
+Running EleutherAI/gpt-j-6B on sst2 with GPU 3
+The model has 28 layers:
+Loading train data from sst2 ...
+Dataset lengh is 67349
+Example data:
+{'sentence': 'hide new secretions from the parental units ', 'label': 0, 'idx': 0}
+Loading train data from sst2 ...
+Number of data in each class:
+0: 29780
+1: 37569
+Dataset lengh is 32
+Example data:
+{'sentence': 'been discovered , indulged in and rejected as boring before i see this piece of crap again ', 'label': 0, 'idx': 47448}
+Loading validation data from sst2 ...
+Number of data in each class:
+0: 428
+1: 444
+Dataset lengh is 500
+Example data:
+{'sentence': 'verbinski implements every hack-artist trick to give us the ooky-spookies . ', 'label': 0, 'idx': 670}
+Max demonstration token length is : 2048 - 44 = 2004
+Max demonstration token length is : 2048 - 68 = 1980
+Run time run_0
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Validation zero-shot result: {'acc': 0.75, 'macro_f1': 0.746031746031746}
+
+Test zero-shot result: {'acc': 0.768, 'macro_f1': 0.7672701592193119}
+
+Generated 10-shot demonstration.
+Demonstration:
+Review: remains the real masterpiece 
+Sentiment: positive
+Review: does n't add up to much . 
+Sentiment: negative
+Review: do the genial-rogue shtick to death 
+Sentiment: negative
+Review: the insinuation of mediocre acting or 
+Sentiment: negative
+Review: , this is the opposite of a truly magical movie . 
+Sentiment: negative
+Review: attentive 
+Sentiment: positive
+Review: actually make a pretty good team 
+Sentiment: positive
+Review: us right into the center of that world 
+Sentiment: positive
+Review: more salacious telenovela than serious drama 
+Sentiment: negative
+Review: funny and poignant 
+Sentiment: positive
+Review: , brisk delight 
+Sentiment:
+
+Baseline demonstration:
+Review: remains the real masterpiece 
+Sentiment: positive
+Review: does n't add up to much . 
+Sentiment: negative
+Review: do the genial-rogue shtick to death 
+Sentiment: negative
+Review: the insinuation of mediocre acting or 
+Sentiment: negative
+Review: , this is the opposite of a truly magical movie . 
+Sentiment: negative
+Review: attentive 
+Sentiment: positive
+Review: actually make a pretty good team 
+Sentiment: positive
+Review: us right into the center of that world 
+Sentiment: positive
+Review: more salacious telenovela than serious drama 
+Sentiment: negative
+Review: funny and poignant 
+Sentiment: positive
+
+
+Query demonstration:
+Review: , brisk delight 
+Sentiment:
+
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Validation few-shot result: {'acc': 0.875, 'macro_f1': 0.8745098039215686}
+
+Test few-shot result: {'acc': 0.848, 'macro_f1': 0.8453045871260849}
+
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 0 result: {'acc': 0.8125, 'macro_f1': 0.8095238095238095}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 1 result: {'acc': 0.78125, 'macro_f1': 0.7757757757757757}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 2 result: {'acc': 0.78125, 'macro_f1': 0.7757757757757757}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 3 result: {'acc': 0.78125, 'macro_f1': 0.7757757757757757}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 4 result: {'acc': 0.75, 'macro_f1': 0.746031746031746}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 5 result: {'acc': 0.8125, 'macro_f1': 0.8095238095238095}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 6 result: {'acc': 0.8125, 'macro_f1': 0.8125}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 7 result: {'acc': 0.8125, 'macro_f1': 0.8117647058823529}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 8 result: {'acc': 0.78125, 'macro_f1': 0.7810361681329424}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 9 result: {'acc': 0.78125, 'macro_f1': 0.7702564102564102}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 10 result: {'acc': 0.78125, 'macro_f1': 0.7702564102564102}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 11 result: {'acc': 0.78125, 'macro_f1': 0.7702564102564102}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 12 result: {'acc': 0.78125, 'macro_f1': 0.7702564102564102}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 13 result: {'acc': 0.78125, 'macro_f1': 0.7793103448275862}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 14 result: {'acc': 0.78125, 'macro_f1': 0.7702564102564102}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 15 result: {'acc': 0.53125, 'macro_f1': 0.3992490613266583}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 16 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 17 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 18 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 19 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 20 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 21 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 22 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 23 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 24 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 25 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 26 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 27 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+Best layer: 0
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Validation task_vector result: {'acc': 0.8125, 'macro_f1': 0.8095238095238095}
+
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Test task_vector result: {'acc': 0.776, 'macro_f1': 0.7753926617573921}
+
+Removing 1 hooks...
+Evaluate time: 6.236077070236206
+Mean KL divergence (ICL vs I2CL): 0.0896
+(Test query count: 500)
+Run time run_1
+Generated 10-shot demonstration.
+Demonstration:
+Review: to the tongue-in-cheek attitude of the screenplay 
+Sentiment: positive
+Review: a slam-dunk 
+Sentiment: positive
+Review: precious little substance 
+Sentiment: negative
+Review: the very top rank of french filmmakers 
+Sentiment: positive
+Review: is almost entirely witless and inane , 
+Sentiment: negative
+Review: have reinvigorated the romance genre 
+Sentiment: positive
+Review: , incoherence and sub-sophomoric 
+Sentiment: positive
+Review: without any passion 
+Sentiment: negative
+Review: dumb and cheesy 
+Sentiment: negative
+Review: dysfunctional drama 
+Sentiment: negative
+Review: promising cast 
+Sentiment:
+
+Baseline demonstration:
+Review: to the tongue-in-cheek attitude of the screenplay 
+Sentiment: positive
+Review: a slam-dunk 
+Sentiment: positive
+Review: precious little substance 
+Sentiment: negative
+Review: the very top rank of french filmmakers 
+Sentiment: positive
+Review: is almost entirely witless and inane , 
+Sentiment: negative
+Review: have reinvigorated the romance genre 
+Sentiment: positive
+Review: , incoherence and sub-sophomoric 
+Sentiment: positive
+Review: without any passion 
+Sentiment: negative
+Review: dumb and cheesy 
+Sentiment: negative
+Review: dysfunctional drama 
+Sentiment: negative
+
+
+Query demonstration:
+Review: promising cast 
+Sentiment:
+
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Validation few-shot result: {'acc': 0.75, 'macro_f1': 0.7333333333333334}
+
+Test few-shot result: {'acc': 0.742, 'macro_f1': 0.7242069345921469}
+
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 0 result: {'acc': 0.8125, 'macro_f1': 0.8095238095238095}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 1 result: {'acc': 0.78125, 'macro_f1': 0.7757757757757757}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 2 result: {'acc': 0.78125, 'macro_f1': 0.7757757757757757}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 3 result: {'acc': 0.75, 'macro_f1': 0.7408906882591093}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 4 result: {'acc': 0.8125, 'macro_f1': 0.805668016194332}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 5 result: {'acc': 0.8125, 'macro_f1': 0.805668016194332}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 6 result: {'acc': 0.84375, 'macro_f1': 0.8435972629521017}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 7 result: {'acc': 0.84375, 'macro_f1': 0.8423645320197044}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 8 result: {'acc': 0.8125, 'macro_f1': 0.8117647058823529}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 9 result: {'acc': 0.78125, 'macro_f1': 0.7793103448275862}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 10 result: {'acc': 0.8125, 'macro_f1': 0.8095238095238095}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 11 result: {'acc': 0.75, 'macro_f1': 0.7408906882591093}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 12 result: {'acc': 0.78125, 'macro_f1': 0.7757757757757757}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 13 result: {'acc': 0.84375, 'macro_f1': 0.8398398398398398}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 14 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 15 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 16 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 17 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 18 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 19 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 20 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 21 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 22 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 23 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 24 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 25 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 26 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 27 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+Best layer: 6
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Validation task_vector result: {'acc': 0.84375, 'macro_f1': 0.8435972629521017}
+
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Test task_vector result: {'acc': 0.724, 'macro_f1': 0.7233626274937456}
+
+Removing 1 hooks...
+Evaluate time: 6.225090980529785
+Mean KL divergence (ICL vs I2CL): 0.0717
+(Test query count: 500)
+Run time run_2
+Generated 10-shot demonstration.
+Demonstration:
+Review: stalking 
+Sentiment: negative
+Review: overall an overwhelmingly positive portrayal 
+Sentiment: positive
+Review: foolish 
+Sentiment: negative
+Review: teeth-clenching 
+Sentiment: positive
+Review: powerful , chilling , and affecting study 
+Sentiment: positive
+Review: to work in the same vein as the brilliance of animal house 
+Sentiment: positive
+Review: fluffy and disposible 
+Sentiment: negative
+Review: a weepy melodrama 
+Sentiment: negative
+Review: workmanlike in the extreme 
+Sentiment: positive
+Review: that , even in all its director 's cut glory , he 's made a film that 's barely shocking , barely interesting and most of all , barely anything 
+Sentiment: negative
+Review: delicious crime drama 
+Sentiment:
+
+Baseline demonstration:
+Review: stalking 
+Sentiment: negative
+Review: overall an overwhelmingly positive portrayal 
+Sentiment: positive
+Review: foolish 
+Sentiment: negative
+Review: teeth-clenching 
+Sentiment: positive
+Review: powerful , chilling , and affecting study 
+Sentiment: positive
+Review: to work in the same vein as the brilliance of animal house 
+Sentiment: positive
+Review: fluffy and disposible 
+Sentiment: negative
+Review: a weepy melodrama 
+Sentiment: negative
+Review: workmanlike in the extreme 
+Sentiment: positive
+Review: that , even in all its director 's cut glory , he 's made a film that 's barely shocking , barely interesting and most of all , barely anything 
+Sentiment: negative
+
+
+Query demonstration:
+Review: delicious crime drama 
+Sentiment:
+
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Validation few-shot result: {'acc': 0.90625, 'macro_f1': 0.9054187192118226}
+
+Test few-shot result: {'acc': 0.924, 'macro_f1': 0.923901376183534}
+
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 0 result: {'acc': 0.78125, 'macro_f1': 0.7793103448275862}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 1 result: {'acc': 0.78125, 'macro_f1': 0.7757757757757757}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 2 result: {'acc': 0.78125, 'macro_f1': 0.7757757757757757}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 3 result: {'acc': 0.78125, 'macro_f1': 0.7757757757757757}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 4 result: {'acc': 0.78125, 'macro_f1': 0.7793103448275862}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 5 result: {'acc': 0.75, 'macro_f1': 0.7490196078431373}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 6 result: {'acc': 0.78125, 'macro_f1': 0.7810361681329424}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 7 result: {'acc': 0.78125, 'macro_f1': 0.7810361681329424}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 8 result: {'acc': 0.75, 'macro_f1': 0.7490196078431373}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 9 result: {'acc': 0.78125, 'macro_f1': 0.7757757757757757}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 10 result: {'acc': 0.78125, 'macro_f1': 0.7702564102564102}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 11 result: {'acc': 0.78125, 'macro_f1': 0.7702564102564102}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 12 result: {'acc': 0.65625, 'macro_f1': 0.6101882613510521}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 13 result: {'acc': 0.78125, 'macro_f1': 0.7757757757757757}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 14 result: {'acc': 0.84375, 'macro_f1': 0.8398398398398398}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 15 result: {'acc': 0.53125, 'macro_f1': 0.3992490613266583}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 16 result: {'acc': 0.53125, 'macro_f1': 0.3992490613266583}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 17 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 18 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 19 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 20 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 21 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 22 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 23 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 24 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 25 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 26 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 27 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+Best layer: 14
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Validation task_vector result: {'acc': 0.84375, 'macro_f1': 0.8398398398398398}
+
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Test task_vector result: {'acc': 0.812, 'macro_f1': 0.8094357676900372}
+
+Removing 1 hooks...
+Evaluate time: 6.08328914642334
+Mean KL divergence (ICL vs I2CL): 0.0232
+(Test query count: 500)
+Run time run_3
+Generated 10-shot demonstration.
+Demonstration:
+Review: is not it 
+Sentiment: negative
+Review: shiner can certainly go the distance , but is n't world championship material 
+Sentiment: positive
+Review: can take credit for most of the movie 's success . 
+Sentiment: positive
+Review: is n't the actor to save it . 
+Sentiment: negative
+Review: its gender politics , genre thrills 
+Sentiment: positive
+Review: the actors are fantastic . 
+Sentiment: positive
+Review: to drown yourself in a lake afterwards 
+Sentiment: negative
+Review: human nature is a goofball movie , in the way that malkovich was , but it tries too hard 
+Sentiment: negative
+Review: is muted 
+Sentiment: negative
+Review: magnificent swooping aerial shots 
+Sentiment: positive
+Review: perceptive , good-natured movie 
+Sentiment:
+
+Baseline demonstration:
+Review: is not it 
+Sentiment: negative
+Review: shiner can certainly go the distance , but is n't world championship material 
+Sentiment: positive
+Review: can take credit for most of the movie 's success . 
+Sentiment: positive
+Review: is n't the actor to save it . 
+Sentiment: negative
+Review: its gender politics , genre thrills 
+Sentiment: positive
+Review: the actors are fantastic . 
+Sentiment: positive
+Review: to drown yourself in a lake afterwards 
+Sentiment: negative
+Review: human nature is a goofball movie , in the way that malkovich was , but it tries too hard 
+Sentiment: negative
+Review: is muted 
+Sentiment: negative
+Review: magnificent swooping aerial shots 
+Sentiment: positive
+
+
+Query demonstration:
+Review: perceptive , good-natured movie 
+Sentiment:
+
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Validation few-shot result: {'acc': 0.90625, 'macro_f1': 0.906158357771261}
+
+Test few-shot result: {'acc': 0.92, 'macro_f1': 0.9199987199795197}
+
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 0 result: {'acc': 0.78125, 'macro_f1': 0.7793103448275862}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 1 result: {'acc': 0.78125, 'macro_f1': 0.7757757757757757}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 2 result: {'acc': 0.78125, 'macro_f1': 0.7757757757757757}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 3 result: {'acc': 0.75, 'macro_f1': 0.7408906882591093}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 4 result: {'acc': 0.71875, 'macro_f1': 0.7117117117117117}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 5 result: {'acc': 0.75, 'macro_f1': 0.746031746031746}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 6 result: {'acc': 0.78125, 'macro_f1': 0.7810361681329424}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 7 result: {'acc': 0.8125, 'macro_f1': 0.8117647058823529}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 8 result: {'acc': 0.78125, 'macro_f1': 0.7810361681329424}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 9 result: {'acc': 0.78125, 'macro_f1': 0.7793103448275862}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 10 result: {'acc': 0.8125, 'macro_f1': 0.8095238095238095}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 11 result: {'acc': 0.8125, 'macro_f1': 0.8117647058823529}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 12 result: {'acc': 0.8125, 'macro_f1': 0.8095238095238095}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 13 result: {'acc': 0.84375, 'macro_f1': 0.8398398398398398}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 14 result: {'acc': 0.5625, 'macro_f1': 0.4589371980676329}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 15 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 16 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 17 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 18 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 19 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 20 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 21 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 22 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 23 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 24 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 25 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 26 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 27 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+Best layer: 13
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Validation task_vector result: {'acc': 0.84375, 'macro_f1': 0.8398398398398398}
+
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Test task_vector result: {'acc': 0.792, 'macro_f1': 0.7885353633938448}
+
+Removing 1 hooks...
+Evaluate time: 6.1256701946258545
+Mean KL divergence (ICL vs I2CL): 0.0217
+(Test query count: 500)
+Run time run_4
+Generated 10-shot demonstration.
+Demonstration:
+Review: of those underrated professionals who deserve but rarely receive it 
+Sentiment: positive
+Review: , well-shaped dramas 
+Sentiment: positive
+Review: a chilly , remote , emotionally distant piece ... so dull that its tagline should be : ` in space , no one can hear you snore . 
+Sentiment: negative
+Review: one of those decades-spanning historical epics that strives to be intimate and socially encompassing but fails to do justice to either effort in three hours of screen time . 
+Sentiment: negative
+Review: onto a cross-country road trip of the homeric kind 
+Sentiment: positive
+Review: what 's the russian word for wow !? ' 
+Sentiment: positive
+Review: more busy than exciting 
+Sentiment: negative
+Review: a turkey 
+Sentiment: negative
+Review: captured the chaos of an urban conflagration with such fury 
+Sentiment: positive
+Review: murderous 
+Sentiment: negative
+Review: highly engaging . 
+Sentiment:
+
+Baseline demonstration:
+Review: of those underrated professionals who deserve but rarely receive it 
+Sentiment: positive
+Review: , well-shaped dramas 
+Sentiment: positive
+Review: a chilly , remote , emotionally distant piece ... so dull that its tagline should be : ` in space , no one can hear you snore . 
+Sentiment: negative
+Review: one of those decades-spanning historical epics that strives to be intimate and socially encompassing but fails to do justice to either effort in three hours of screen time . 
+Sentiment: negative
+Review: onto a cross-country road trip of the homeric kind 
+Sentiment: positive
+Review: what 's the russian word for wow !? ' 
+Sentiment: positive
+Review: more busy than exciting 
+Sentiment: negative
+Review: a turkey 
+Sentiment: negative
+Review: captured the chaos of an urban conflagration with such fury 
+Sentiment: positive
+Review: murderous 
+Sentiment: negative
+
+
+Query demonstration:
+Review: highly engaging . 
+Sentiment:
+
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Validation few-shot result: {'acc': 0.90625, 'macro_f1': 0.906158357771261}
+
+Test few-shot result: {'acc': 0.924, 'macro_f1': 0.9238244916287126}
+
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 0 result: {'acc': 0.78125, 'macro_f1': 0.7793103448275862}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 1 result: {'acc': 0.75, 'macro_f1': 0.7408906882591093}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 2 result: {'acc': 0.75, 'macro_f1': 0.746031746031746}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 3 result: {'acc': 0.8125, 'macro_f1': 0.8095238095238095}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 4 result: {'acc': 0.8125, 'macro_f1': 0.8117647058823529}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 5 result: {'acc': 0.8125, 'macro_f1': 0.8095238095238095}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 6 result: {'acc': 0.8125, 'macro_f1': 0.8125}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 7 result: {'acc': 0.84375, 'macro_f1': 0.8423645320197044}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 8 result: {'acc': 0.8125, 'macro_f1': 0.8117647058823529}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 9 result: {'acc': 0.75, 'macro_f1': 0.746031746031746}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 10 result: {'acc': 0.8125, 'macro_f1': 0.805668016194332}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 11 result: {'acc': 0.78125, 'macro_f1': 0.7702564102564102}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 12 result: {'acc': 0.8125, 'macro_f1': 0.8095238095238095}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 13 result: {'acc': 0.78125, 'macro_f1': 0.7702564102564102}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 14 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 15 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 16 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 17 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 18 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 19 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 20 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 21 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 22 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 23 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 24 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 25 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 26 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Layer 27 result: {'acc': 0.5, 'macro_f1': 0.3333333333333333}
+
+Removing 1 hooks...
+Best layer: 7
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Validation task_vector result: {'acc': 0.84375, 'macro_f1': 0.8423645320197044}
+
+ans_txt:  negative, ans_tok: 4633
+ans_txt:  positive, ans_tok: 3967
+label_map: {4633: 0, 3967: 1}
+Test task_vector result: {'acc': 0.628, 'macro_f1': 0.5740119826306822}
+
+Removing 1 hooks...
+Evaluate time: 6.280120611190796
+Mean KL divergence (ICL vs I2CL): 0.0993
+(Test query count: 500)
+CUDA memory cleared for GPU 3
+All tasks completed.

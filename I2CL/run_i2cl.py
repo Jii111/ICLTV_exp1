@@ -230,7 +230,7 @@ def main(args):
     # delete all variables
     del model_wrapper, model, tokenizer, train_dataset, cali_dataset, test_dataset, holdout_dataset
     del test_evaluator, holdout_evaluator
-    del result_dict, context_vector_dict, demon_list
+    del result_dict, context_vector_dict, demon_list, kl_dict
             
 
 # get args

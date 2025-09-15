@@ -323,6 +323,7 @@ class TensorStrFinder:
         mask_tensor = functools.reduce(torch.logical_or, mask_tensor_list)
         return mask_tensor
     
+# ✅ 수정
 def compute_kl_divergence(logits_p, logits_q):
     probs_p = F.softmax(logits_p, dim=-1)
     probs_q = F.softmax(logits_q, dim=-1)

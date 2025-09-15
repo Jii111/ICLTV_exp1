@@ -1,7 +1,0 @@
-model_name: EleutherAI/gpt-j-6B
-dataset_name: sst2
-gpu: 1
-config: {'exp_name': 'exps/task_vector', 'gpus': ['0', '1'], 'models': ['EleutherAI/gpt-j-6B'], 'datasets': ['agnews', 'sst2'], 'seed': 42, 'run_num': 5, 'run_baseline': True, 'metric': 'acc', 'bs': 2, 'load_in_8bit': True, 'use_cache': True, 'layer': 'all', 'tok_pos': 'last', 'module': ['hidden'], 'gen_cv_method': 'context', 'post_fuse_method': 'mean', 'split_demon': False, 'shot_per_class': 5, 'val_data_num': 32, 'test_data_num': 500, 'sample_method': 'uniform', 'use_instruction': False, 'add_extra_query': True, 'example_separator': '\n'}
-device: cuda:1
-metric: acc
-save_dir: exps/task_vector/EleutherAI/gpt-j-6B/sst2
